@@ -324,26 +324,364 @@
   .modal-content h3{margin:0 0 8px 0;font-size:18px}
   .modal-content input{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:var(--input);color:#e6e6e6;margin-top:8px}
   .modal-actions{Display:flex;gap:10px;justify-content:flex-end;margin-top:12px}
+  .explore-blog-full {
+  background: var(--panel);
+  border-radius: 18px;
+  padding: 26px;
+  box-shadow: 0 6px 24px #000a;
+  margin-top: 20px;
+  animation: blogFade 0.6s ease;
+}
+
+@keyframes blogFade {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: none; }
+}
+
+.blog-header h1 {
+  color: var(--accent);
+  font-size: 32px;
+  font-weight: 900;
+  margin-bottom: 18px;
+}
+/* ================= PREMIUM BLOG LAYOUT ================= */
+
+.premium-blog {
+  max-width: 850px;
+  margin: auto;
+  padding: 20px 0 80px 0;
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* --- HERO SECTION --- */
+.blog-hero {
+  width: 100%;
+  height: 360px;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 28px;
+  box-shadow: 0px 10px 30px #0007;
+}
+
+.blog-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(65%);
+}
+
+.blog-hero-title {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #fff;
+  font-size: 34px;
+  font-weight: 900;
+  max-width: 90%;
+  line-height: 1.2;
+  text-shadow: 0 4px 14px #000;
+}
+
+/* --- CONTENT --- */
+.premium-content {
+  font-size: 20px;
+  line-height: 1.8;
+  color: #d7d7d7;
+}
+
+.premium-content p {
+  margin: 22px 0;
+}
+
+.premium-content strong {
+  color: #fff;
+}
+
+/* DROP CAP style */
+.premium-content p:first-child::first-letter {
+  float: left;
+  font-size: 4rem;
+  line-height: 1;
+  padding-right: 10px;
+  padding-left: 2px;
+  font-weight: 900;
+  color: var(--accent);
+}
+
+/* SECTION HEADERS */
+.blog-section-title {
+  font-size: 26px;
+  font-weight: 900;
+  margin-top: 32px;
+  margin-bottom: 10px;
+  color: var(--green);
+}
+
+/* --- NAVIGATION BUTTONS --- */
+.blog-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.blog-btn {
+  background: #222;
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: 1px solid #333;
+  color: #e4e4e4;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.25s;
+}
+
+.blog-btn:hover {
+  background: var(--green);
+  color: #000;
+  box-shadow: 0px 6px 20px #14b21455;
+  transform: translateY(-3px);
+}
+
+.blog-btn:active {
+  transform: scale(0.97);
+}
+
+.blog-back-wrap {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* --- PROGRESS BAR --- */
+.blog-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: var(--accent);
+  width: 0%;
+  z-index: 10000;
+  transition: width 0.15s;
+}
+
+/* ---------- BLOG NAV BUTTONS ---------- */
+.blog-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 35px;
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.blog-nav-btn {
+  background: var(--accent);
+  color: #000;
+  font-weight: 800;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px #ff4c4c44;
+  transition: 0.25s;
+}
+
+.blog-nav-btn:hover {
+  background: var(--green);
+  color: #121212;
+  box-shadow: 0 6px 24px #14b21455;
+  transform: translateY(-3px);
+}
+
+.blog-nav-btn:active {
+  transform: scale(0.97);
+}
+
+
+/* ---------- BACK TO EXPLORE BUTTON ---------- */
+.blog-back {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.blog-back-btn {
+  background: #333;
+  color: #e6e6e6;
+  padding: 12px 24px;
+  font-weight: 700;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s;
+  box-shadow: 0 2px 12px #0007;
+}
+
+.blog-back-btn:hover {
+  background: var(--green);
+  color: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 20px #14b21455;
+}
+
+.blog-back-btn:active {
+  transform: scale(0.97);
+}
+
+
+.blog-image img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px #0008;
+  margin-bottom: 22px;
+}
+
+.blog-content p {
+.blog-content {
+  max-width: 780px;
+  margin: auto;
+  font-size: 18px;
+  line-height: 1.75;
+  color: #e4e4e4;
+}
+
+.blog-content p {
+  margin: 20px 0;
+  font-size: 18px;
+  line-height: 1.75;
+  color: #d6d6d6;
+}
+
+.blog-content p:first-child {
+  margin-top: 0;
+}
+
+.blog-content strong {
+  color: #fff;
+}
+
+.blog-header h1 {
+  max-width: 780px;
+  margin: 0 auto 20px auto;
+}
+
+  margin: 14px 0;
+  line-height: 1.65;
+  font-size: 17px;
+  color: #dcdcdc;
+}
+
+.blog-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+@media (max-width: 768px) {
+  .blog-content {
+    padding: 0 14px;
+  }
+}
+
+
 </style>
 </style>
 <script>
 // --- Explore Campus Blog Data ---
 const exploreCampusBlogs = {
   'SportX Arena': {
-    title: 'SportX Arena',
-    content: `<b>SportX Arena</b> is the heart of campus sports, featuring indoor and outdoor courts for badminton, squash, basketball, and more. Students gather here for tournaments, fitness, and fun. The vibrant atmosphere and modern facilities make it a favorite hangout for athletes and fans alike.`
+    title: 'SportX: The Iron Cathedral of "The League"',
+    image: 'https://woxsen.edu.in/uploads/A20240611064133.webp',
+    content: `In the chaotic life of a university student, between deadlines, assignments, and back-to-back lectures, you need an outlet. You need a place where the mental noise quiets down and the physical grind takes over. At Woxsen University, that sanctuary is SportX.
+
+Sitting proudly within "The League"—our colossal 60-acre sports arena—SportX is not just a building; it is a statement. It tells you that here, we don't just train the mind; we forge the body.
+
+The Architectural Psychology The first thing that hits you is the scale. The building doesn't apologize for its size. Constructed with the university's signature exposed concrete, it feels raw and industrial, yet sophisticated. The design philosophy here is crucial: the high ceilings and massive glass panels aren't just for looks. They are designed to bring the outdoors in, flooding the workout zones with natural light so you never feel like you’re training in a dungeon. It’s solar-powered, meaning every calorie you burn is matched by a building that burns clean energy.
+
+Inside the Beast: The Technogym Experience Walking onto the main fitness floor feels like stepping into a pro-athlete’s private facility. We are talking about an exclusive partnership with Technogym—the same equipment used by Olympic athletes. The biomechanics of these machines are precise. Whether you are hitting a PB (Personal Best) on the bench press or grinding through a 5K on the treadmills, the equipment feels intuitive.
+
+But it’s the vibe that hooks you. There is a collective energy here. You’ll see the design students destressing on the ellipticals, the management grads spotting each other on the squat racks, and the faculty getting their evening steps in. It’s the great equalizer.
+
+The Courts of Champions Venturing deeper into the complex, you find the specialized arenas.
+
+The Squash Courts: These are enclosed glass boxes of intensity. The pro-grade flooring provides that specific "squeak" of grip, and the acoustics amplify the thwack of the ball against the wall, making a casual game feel like a high-stakes tournament.
+
+The Badminton Arena: This isn't a backyard setup. With BWF-certified flooring, the impact on your knees is cushioned, allowing you to jump higher and lunge faster. The height of the ceiling ensures that even your highest lob shot won’t hit a rafter.
+
+The After-Burn The experience of SportX ends at the health bar. There is a specific ritual to grabbing a protein shake or a hydration drink after a session, sitting on the steps outside, and watching the sun go down over the campus. It’s the moment you realize that while you came to university for a degree, places like SportX are where you build the discipline to use it.`
   },
   'Central Library': {
-    title: 'Central Library',
-    content: `<b>Central Library</b> offers a peaceful study space with thousands of books and digital resources. Whether you need a quiet corner or group study room, the library is the go-to place for academic success and research.`
+    title: 'Central Library: The Vithal Gandhi Centre: A Fortress of Solitude',
+    image: 'https://woxsen.edu.in/uploads/A20240330030632.webp',
+    content: `If Woxsen is a kingdom, the Vithal Gandhi Centre (The Library) is its temple. It is easily one of the most photographed, talked about, and revered structures on our campus. But to treat it just as a "cool building" is to miss the point. This 70,000 sq. ft. monolith is a meticulously designed machine for learning.
+
+The "Inception" Architecture Stepping through the glass doors, the first sensation is a shift in atmosphere. The air feels cooler, crisper. You are greeted by an architectural marvel—an open atrium that slices through four stories of concrete and steel. It creates a visual connection between every floor. If you stand in the center and look up, the geometry of the staircases and the walkways looks like an M.C. Escher painting or a scene from the movie Inception.
+
+The architects used a technique called Clerestory lighting. By placing windows high up near the roofline, they ensure that the library is flooded with soft, diffused northern light. This means you can read for hours without the harsh glare of direct sunlight hitting your page or screen. It’s a subtle detail, but it changes everything.
+
+The Bunker Effect The library is built like a bunker—a safe house for your thoughts. The exposed concrete walls dampen the sound, creating a "hush" that feels heavy and respectful. It’s a place where you can hear a pin drop, or more accurately, the turning of a page three tables away. This isolation is addictive. When you have a 3000-word report due, this is the only place where the world stops spinning so you can focus.
+
+High-Tech Meets Old School While the building looks like a brutalist sculpture, the insides are powered by the future.
+
+RFID Automation: Gone are the days of signing paper cards. You grab a book, place it on the kiosk, and the RFID sensors check it out to you instantly.
+
+The Collection: The shelves are a treasure hunt. With over 18,000 distinct titles, you can drift from the latest Harvard Business Review to niche books on Typography or AI ethics. And if you can’t find the physical copy, the digital repository opens up 33,000+ online resources.
+
+Whether you are huddled in a private pod for deep work or brainstorming in the collaborative zones, the Library demands your best version. It is the intellectual soul of Woxsen.`
   },
-  'Admin Block': {
-    title: 'Admin Block',
-    content: `<b>Admin Block</b> houses administrative offices, admissions, and student support services. It's where you handle official paperwork, meet staff, and get guidance for your campus journey.`
+  'The Oval': {
+    title: 'The Oval: The Living Room of Campus',
+    image: 'https://woxsen.edu.in/uploads/A20240611064133.webp',
+    content: `If you ask any student where the "real" campus life happens, they won’t say the classroom. They will point you to The Oval. Technically, it’s our Mess and dining facility. But spiritually? It’s the town square. It’s the living room. It’s home.
+
+The Mess: A Culinary Colosseum The structure itself is impressive—an airy, open design that prevents the space from feeling crowded, even when hundreds of students are eating at once. The ceiling height allows the noise of chatter, laughter, and clinking spoons to rise up, creating a hum of activity that feels welcoming rather than chaotic.
+
+This is where the day begins and ends. It’s where you grab a hurried breakfast of idli or toast while reviewing notes for a presentation. It’s where you debate with your friends over lunch about which professor is the toughest. And it’s where you unwind at dinner, tired but happy. The food connects us—it’s the glorious, chaotic, shared experience of breaking bread together.
+
+The Oval Tree: The Icon But the true magic lies just outside the dining hall. Standing guard is the Oval Tree. You cannot write about Woxsen without writing about this tree. It is the unofficial meeting point for the entire university.
+
+"Where are you?" -> "I'm at the Tree."
+
+"Let's discuss the project." -> "Meet me at the Tree."
+
+The area around the tree is paved and designed with seating ledges that invite you to stay. During the day, it provides shade. But at night, it transforms. With decorative lights strung up and the warm glow from the mess spilling out, it becomes the coziest spot on campus.
+
+The Social Gravity The Oval is where the barriers break down. You’ll find B.Des students sketching on one bench, B.Tech students coding on another, and MBA students discussing stocks on a third—and eventually, they all start talking to each other. It’s the venue for impromptu birthday cake cuttings, guitar jam sessions, and late-night philosophical conversations that go on until the guards tell you to go back to the hostel. The Oval isn’t just where we eat; it’s where we bond.`
   },
-  'RACE': {
-    title: 'RACE',
-    content: `<b>RACE</b> (Research & Advanced Computing Excellence) is the innovation hub for tech enthusiasts. Cutting-edge labs, collaborative projects, and events make it the center for research and discovery.`
+   'Admin Block': {
+    title: 'Admin Block: The Monolith',
+    image: 'https://live.staticflickr.com/542/31186795203_74626ca1b1_b.jpg',
+    content: `Every great university needs a symbol—an image that comes to mind when you say its name. For us, that symbol is the Admin Block. It is the first building that greets you, and it sets the tone for everything that follows: Grand. bold. Unwavering.
+
+A Lesson in Brutalism The Admin Block is a masterclass in Brutalist architecture. It rejects the idea that a building needs to be painted or decorated to be beautiful. Instead, it celebrates the raw materials. The massive expanse of grey concrete stands against the blue Hyderabad sky and the green landscape, creating a striking contrast.
+
+The structure is elevated, giving it a sense of floating weight. The symmetry is perfect. The giant, geometric cutouts in the walls and roof are not just artistic choices; they frame the landscape like living paintings. As you walk through the colossal open corridors, you feel small—but in an inspiring way. It reminds you that you are part of something much bigger than yourself.
+
+The Golden Hour Spectacle If you want to see the Admin Block comes alive, you have to visit during the "Golden Hour" (just before sunset). The sun hits the cutouts at a specific angle, casting long, dramatic geometric shadows across the floor. It’s a photographer's paradise. The interplay of light and shadow changes every hour, making the building feel like a living, breathing entity rather than a static block of stone.
+
+The Nerve Center Functionally, this is the brain of the campus. It houses the Chancellor’s office, the boardroom, and the Admissions department. It’s a place of beginnings and endings. It’s where you nervously walked in to submit your documents on day one, and it’s the backdrop for the photos you’ll take in your graduation robes on your last day.
+
+The Admin Block is more than offices; it is the visual anchor of our Woxsen identity. It stands for the strength of our foundation and the openness of our future.`
+  },
+  'The Race': {
+    title: 'The Race: Under the Lights',
+    image: 'data:image/jpeg;base64,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',
+    content: `There is a specific sound that defines the evenings at Woxsen: the rhythmic thud of running shoes on synthetic rubber and the distant shout of "Pass the ball!" coming from the floodlit arena. This is The Race.
+
+The Science of Speed Calling it a "ground" is an insult. This is a facility built to World Athletics Class-1 Standards. The track itself is a marvel. It’s a 10-lane synthetic beast equipped with SmarTrack technology. Beneath the surface, magnetic sensors are capable of tracking gait and speed, bringing a level of analytics to the campus that is usually reserved for Olympic training camps. When you run here, the track feels "fast." The energy return from the surface propels you forward, making that evening jog feel effortless.
+
+The Green Carpet Inside the embrace of the track lies the Football field. This is FIFA Quality Pro synthetic turf. It’s not just grass; it’s an engineered surface designed for perfect ball control. It doesn't get muddy in the rain, it doesn't get patchy in the summer. It is a carpet of perfect green, 365 days a year. Because of this quality, the game changes. Passes are crisp. Sprints are faster. Tackles are safer. Whether you are on the university team or just playing a pickup game with your hostel mates, the field makes you want to play better.
+
+Night Mode The Race is beautiful by day, but it is legendary by night. The high-mast floodlights are powerful enough to simulate daylight. When the rest of the campus is dark, The Race is a glowing oval of energy. It serves a dual purpose:
+
+The Arena: For athletes, it’s where the sweat happens. The competition is fierce, and the cheers from the stands (or just friends sitting on the grass) create an electric atmosphere.
+
+The Escape: For others, the track at 9 PM is a place for a "mental health walk." Walking the perimeter, with the cool wind blowing and the soft hum of the floodlights, is the best way to clear your head after a long day of lectures.`
   }
 };
 
@@ -366,24 +704,80 @@ function addExploreCampusCardEvents() {
         const blog = exploreCampusBlogs[h3.textContent.trim()];
         if (!blog) return;
         // Remove all cards and show blog
-        container.innerHTML = `<div class='explore-blog'><h2 style='color:var(--green);margin-bottom:12px'>${blog.title}</h2><div>${blog.content}</div><button class='action-button' id='exploreBackBtn' style='margin-top:22px'>Back to Explore</button></div>`;
+        pageContent.innerHTML = `
+  <div class="blog-progress" id="blogProgress"></div>
+
+  <div class="premium-blog">
+
+    <div class="blog-hero">
+      <img src="${blog.image}">
+      <div class="blog-hero-title">${blog.title}</div>
+    </div>
+
+    <div class="premium-content">
+      ${blog.content
+        .split('\n')
+        .map(p => `<p>${p.trim()}</p>`)
+        .join('')}
+    </div>
+
+    <div class="blog-nav">
+      <button id="prevBlogBtn" class="blog-btn">← Previous</button>
+      <button id="nextBlogBtn" class="blog-btn">Next →</button>
+    </div>
+
+    <div class="blog-back-wrap">
+      <button id="exploreBackBtn" class="blog-btn" style="margin-top:20px;">⟵ Back to Explore</button>
+    </div>
+
+  </div>
+`;
+        
         document.getElementById('exploreBackBtn').onclick = function() {
           // Reload explore campus page
           if (window.loadPage) window.loadPage('explorecampus');
         };
+        // --- Add Next / Previous Navigation ---
+
+const order = ["SportX Arena", "Central Library", "The Oval", "Admin Block", "The Race"];
+const currentIndex = order.indexOf(h3.textContent.trim());
+
+// Helper to reopen correct blog
+function openAnotherBlog(name){
+  loadPage("explorecampus");
+  setTimeout(() => {
+    document.querySelectorAll('.food-card h3').forEach(el => {
+      if (el.textContent.trim() === name) {
+        el.parentElement.parentElement.click();
+      }
+    });
+  }, 300);
+}
+
+// NEXT
+document.getElementById("nextBlogBtn").onclick = () => {
+  const next = order[(currentIndex + 1) % order.length];
+  openAnotherBlog(next);
+};
+
+// PREVIOUS
+document.getElementById("prevBlogBtn").onclick = () => {
+  const prev = order[(currentIndex - 1 + order.length) % order.length];
+  openAnotherBlog(prev);
+};
+
       }, 600);
     };
   });
 }
 
 // Patch loadPage to add events for explorecampus
-const origLoadPageExplore = window.loadPage;
+const origLoadPage = window.loadPage;
 window.loadPage = function(page) {
-  origLoadPageExplore(page);
-  setTimeout(() => {
-    if (page === 'explorecampus') addExploreCampusCardEvents();
-  }, 100);
+  origLoadPage(page);
+  setTimeout(animateCards, 200);
 };
+
 // --- Live motion: Parallax on mousemove for .main and .sidebar ---
 document.addEventListener('mousemove', function(e) {
   const x = (e.clientX / window.innerWidth - 0.5) * 2;
@@ -406,11 +800,7 @@ setTimeout(animateCards, 400);
 // Also re-run after page loads
 window.addEventListener('load', animateCards);
 // Re-animate after page loads for quickserve/explorecampus
-const origLoadPage = window.loadPage;
-window.loadPage = function(page) {
-  origLoadPage(page);
-  setTimeout(animateCards, 200);
-};
+
 
 // --- Ripple effect for all .card-button and .action-button ---
 document.addEventListener('click', function(e) {
@@ -431,6 +821,22 @@ document.addEventListener('click', function(e) {
   btn.appendChild(ripple);
   setTimeout(()=>{ if(ripple.parentNode) ripple.parentNode.removeChild(ripple); }, 500);
 });
+</script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script>
+// --- Firebase config ---
+const firebaseConfig = {
+  apiKey: "AIzaSyDfRc0nqslUlDApnwzGFidilp-tHYWz_mE",
+  authDomain: "campus-web-19bed.firebaseapp.com",
+  projectId: "campus-web-19bed",
+  storageBucket: "campus-web-19bed.firebasestorage.app",
+  messagingSenderId: "403842540358",
+  appId: "1:403842540358:web:1bf5a27f80009b7c5dbb47",
+  measurementId: "G-HL9V671NFF"
+};
+firebase.initializeApp(firebaseConfig);
+window.db = firebase.firestore();
 </script>
 </head>
 <body>
@@ -484,6 +890,17 @@ document.addEventListener('click', function(e) {
    Protection: disable right-click, keyboard devtools shortcuts,
    dragging and selecting (while keeping inputs usable)
    ========================= */
+   window.onscroll = function () {
+  const el = document.getElementById('blogProgress');
+  if (!el) return;
+
+  const docHeight =
+    document.documentElement.scrollHeight - window.innerHeight;
+
+  const scrolled = (window.scrollY / docHeight) * 100;
+  el.style.width = scrolled + "%";
+};
+
 (function(){
   // disable context menu
   document.addEventListener('contextmenu', function(e){ e.preventDefault(); }, true);
@@ -850,19 +1267,27 @@ const pages = {
         <p style="color:#bdbdbd;margin:6px 0 12px">A peaceful study space with thousands of books & digital resources.</p>
       </div>
     </div>
+    
+    <div class="food-card">
+      <img src="https://woxsen.edu.in/uploads/A20240622074429.webp" alt="The Oval">
+      <div class="food-info">
+        <h3>The Oval</h3>
+        <p style="color:#bdbdbd;margin:6px 0 12px">Dining hall, meet-up spot & social center of campus.</p>
+      </div>
+    </div>
 
     <div class="food-card">
-      <img src="https://woxsen.edu.in/uploads/A20230522054130.webp" alt="Admin Block">
+      <img src="https://live.staticflickr.com/542/31186795203_74626ca1b1_b.jpg" alt="Admin Block">
       <div class="food-info">
         <h3>Admin Block</h3>
         <p style="color:#bdbdbd;margin:6px 0 12px">Administrative offices, admissions & student support services.</p>
       </div>
     </div>
-
+    
     <div class="food-card">
       <img src="https://woxsen.edu.in/uploads/A20240722074042.webp" alt="RACE">
       <div class="food-info">
-        <h3>RACE</h3>
+        <h3>The Race</h3>
         <p style="color:#bdbdbd;margin:6px 0 12px">Research & Advanced Computing Excellence center.</p>
       </div>
     </div>
@@ -975,14 +1400,21 @@ function addQuickserveSearch() {
 
 /* WhatsInMess interactions */
 let currentMess = "oval";
+let currentDay = "wed";
+let currentMeal = "breakfast";
 
-
-function renderMealItems() {
+async function renderMealItems() {
   const mealItemsContainer = document.getElementById('meal-items');
   if(!mealItemsContainer) return;
-  // if an uploaded image exists for this selection, render it (and continue to show textual items if present)
+  // Load image from Firestore for this selection
   const imgKey = `${currentMess}|${currentDay}|${currentMeal}`;
-  const uploadedImg = (window._messImages && window._messImages[imgKey]) ? window._messImages[imgKey] : null;
+  let uploadedImg = null;
+  try {
+    if (window.db) {
+      const doc = await window.db.collection('messImages').doc(imgKey).get();
+      if (doc.exists) uploadedImg = doc.data().url;
+    }
+  } catch (e) { /* ignore */ }
 
   const items = (messMenu[currentMess] && messMenu[currentMess][currentDay] && messMenu[currentMess][currentDay][currentMeal]) || [];
 
@@ -1072,21 +1504,40 @@ function addWhatsInMessEvents() {
       if (!file) return;
 
       if (file.type.startsWith('image/')) {
-        const reader = new FileReader();
-        reader.onload = function(ev) {
-          stagedImageData = ev.target.result;
-          uploadPreview.innerHTML = `<img src=\"${stagedImageData}\" style=\"max-width:120px;border-radius:8px\">`;
-        };
-        reader.readAsDataURL(file);
+        // --- Cloudinary unsigned upload integration + Firestore save ---
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('upload_preset', 'campusweb');
+        uploadPreview.innerHTML = '<span style="color:#bdbdbd">Uploading image...</span>';
+        try {
+          const response = await fetch('https://api.cloudinary.com/v1_1/duhrnwa3d/image/upload', {
+            method: 'POST',
+            body: formData
+          });
+          const data = await response.json();
+          if (data.secure_url) {
+            stagedImageData = data.secure_url;
+            uploadPreview.innerHTML = `<img src="${stagedImageData}" style="max-width:120px;border-radius:8px">`;
+            // Save to Firestore for all users (keyed by mess, day, meal)
+            if (window.db) {
+              const imgKey = `${currentMess}|${currentDay}|${currentMeal}`;
+              await window.db.collection('messImages').doc(imgKey).set({ url: stagedImageData, ts: Date.now() });
+            }
+          } else {
+            uploadPreview.innerHTML = `<div style="color:#f88">Upload failed: ${escapeHtml(data.error?.message || 'Unknown error')}</div>`;
+          }
+        } catch (err) {
+          uploadPreview.innerHTML = `<div style="color:#f88">Upload failed: ${escapeHtml(err.message)}</div>`;
+        }
       } else if (file.type === 'text/plain' || file.name.toLowerCase().endsWith('.txt')) {
         const reader = new FileReader();
         reader.onload = function(ev) {
           stagedMenuItems = (ev.target.result || '').split(/\r?\n/).map(s => s.trim()).filter(Boolean);
-          uploadPreview.innerHTML = `<div style=\"color:#bdbdbd;max-width:600px\"><strong>Parsed items:</strong><div style=\"margin-top:8px\">${stagedMenuItems.map(i => `<div style=\"padding:4px 0\">• ${escapeHtml(i)}</div>`).join('')}</div></div>`;
+          uploadPreview.innerHTML = `<div style="color:#bdbdbd;max-width:600px"><strong>Parsed items:</strong><div style="margin-top:8px">${stagedMenuItems.map(i => `<div style="padding:4px 0">• ${escapeHtml(i)}</div>`).join('')}</div></div>`;
         };
         reader.readAsText(file);
       } else {
-        uploadPreview.innerHTML = `<div style=\"color:#f88\">Unsupported file type</div>`;
+        uploadPreview.innerHTML = `<div style="color:#f88">Unsupported file type</div>`;
       }
     });
 
@@ -1135,17 +1586,19 @@ function loadPage(page){
   if(page === 'facultyfinder'){
     renderFacultyFinder();
   } else {
-    document.getElementById('pageContent').innerHTML = pages[page] || `<div style=\"padding:24px\">Page: ${page}</div>`;
-    // post-load hookups
+    document.getElementById('pageContent').innerHTML = pages[page] || `<div style="padding:24px">Page: ${page}</div>`;
+
     if(page === 'quickserve') {
-      // allow small delay before hooking search
       setTimeout(()=> addQuickserveSearch(), 0);
+
     } else if(page === 'whatsinmess') {
-      // initialize mess interactions
       setTimeout(()=> {
         addWhatsInMessEvents();
         renderMealItems();
       }, 0);
+
+    } else if(page === 'explorecampus') {
+      setTimeout(() => addExploreCampusCardEvents(), 50);
     }
   }
 }
