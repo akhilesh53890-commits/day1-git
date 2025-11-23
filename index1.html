@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Students Hub — Campus Guide</title>
-<style>
-      /* QuickServe menu button theme override */
-      .action-button.quickserve-menu {
-        background: var(--accent) !important;
-        color: #fff !important;
-        border: none;
-        box-shadow: 0 2px 12px #ff4c4c33;
-        transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-      }
-      .action-button.quickserve-menu:hover {
-        background: var(--green) !important;
-        color: #121212 !important;
-        box-shadow: 0 4px 24px #14b21455;
-      }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Students Hub — Campus Hub WOU</title>
+  <style>
+    /* QuickServe menu button theme override */
+    .action-button.quickserve-menu {
+      background: var(--accent) !important;
+      color: #fff !important;
+      border: none;
+      box-shadow: 0 2px 12px #ff4c4c33;
+      transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    }
+
+    .action-button.quickserve-menu:hover {
+      background: var(--green) !important;
+      color: #121212 !important;
+      box-shadow: 0 4px 24px #14b21455;
+    }
+
     /* --- Explore Campus Blog Slide --- */
     .explore-blog {
       background: var(--panel);
@@ -26,578 +29,1035 @@
       margin-top: 18px;
       padding: 28px 24px;
       color: #fff;
-      animation: blog-fadein 0.7s cubic-bezier(.4,2,.6,1);
+      animation: blog-fadein 0.7s cubic-bezier(.4, 2, .6, 1);
       position: relative;
       min-height: 180px;
       z-index: 10;
     }
+
     @keyframes blog-fadein {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: none; }
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
     }
-    .food-card.explore-clickable { cursor: pointer; transition: box-shadow 0.3s, transform 0.3s; }
-    .food-card.explore-clickable:active { transform: scale(0.97); }
+
+    .food-card.explore-clickable {
+      cursor: pointer;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+
+    .food-card.explore-clickable:active {
+      transform: scale(0.97);
+    }
+
     .food-card.explore-slideout img {
-      animation: img-slideout 0.6s cubic-bezier(.4,2,.6,1) forwards;
+      animation: img-slideout 0.6s cubic-bezier(.4, 2, .6, 1) forwards;
     }
+
     @keyframes img-slideout {
-      to { transform: translateX(120%) scale(0.8) rotate(8deg); opacity: 0; }
+      to {
+        transform: translateX(120%) scale(0.8) rotate(8deg);
+        opacity: 0;
+      }
     }
-  /* ---------- GLOBAL RESET & BASE ---------- */
-  *{box-sizing:border-box;margin:0;padding:0}
-  :root{
-    --bg:#121212; --panel:#1f1f20; --muted:#bdbdbd; --accent:#ff4c4c; --green:#14b214;
-    --card:#2a2a2a; --input:#232324;
-  }
-  html {
-    scroll-behavior: smooth;
-  }
-  body{
-    font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    background:var(--bg); color:#e6e6e6;
-    display:flex; min-height:100vh;
-    animation: bg-move 18s linear infinite alternate;
-    background: linear-gradient(120deg, #121212 0%, #232324 100%);
-    background-size: 200% 200%;
-  }
-  @keyframes bg-move {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
-  }
 
-  /* ---------- SIDEBAR ---------- */
-  .sidebar{
-    width:250px;background:#181818;padding:22px;display:flex;flex-direction:column;gap:14px;
-    border-right:1px solid rgba(255,255,255,0.02);
-    overflow-y:auto;
-    box-shadow: 0 0 32px 0 rgba(255,76,76,0.08);
-    animation: sidebar-float 4s ease-in-out infinite alternate;
-  }
-  @keyframes sidebar-float {
-    0% { transform: translateY(0px); }
-    100% { transform: translateY(10px); }
-  }
-  .logo{display:flex;align-items:center;gap:12px;color:#fff;font-weight:800;font-size:19px;letter-spacing:1.5px;transition:transform 0.3s cubic-bezier(.4,2,.6,1);}
-  .logo:hover { transform: scale(1.08) rotate(-2deg); text-shadow: 0 2px 16px #ff4c4c44; }
-  .logo .icon{
-    width:36px;height:36px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:900;
-    box-shadow: 0 2px 12px #ff4c4c55;
-    animation: icon-bounce 2.2s infinite cubic-bezier(.6,0,.4,1);
-    transition: box-shadow 0.3s;
-  }
-  @keyframes icon-bounce {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-8px) scale(1.12); }
-  }
-  .nav-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#b2b2b2;cursor:pointer;transition:background 0.3s, color 0.3s, transform 0.25s;position:relative;overflow:hidden;}
-  .nav-item:hover{
-    background:linear-gradient(90deg,#232324 60%,#ff4c4c22 100%);
-    color:#fff;
-    transform:translateX(6px) scale(1.04);
-    box-shadow:0 2px 16px #ff4c4c22;
-  }
-  .nav-item.active{
-    background:var(--accent);color:#fff;
-    box-shadow:0 2px 16px #ff4c4c55;
-    transform:scale(1.06);
-  }
-  .nav-item .icon{
-    width:36px;height:36px;background:#2b2b2b;border-radius:8px;display:flex;align-items:center;justify-content:center;
-    transition:background 0.3s, transform 0.3s;
-  }
-  .nav-item:hover .icon{
-    background:var(--accent);
-    transform:scale(1.12) rotate(-8deg);
-  }
+    /* ---------- GLOBAL RESET & BASE ---------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
 
-  /* ---------- MAIN ---------- */
-  .main{flex:1;display:flex;flex-direction:column;overflow:auto;padding:28px 34px;animation: main-fadein 1.2s cubic-bezier(.4,2,.6,1);}
-  @keyframes main-fadein {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: none; }
-  }
+    :root {
+      --bg: #121212;
+      --panel: #1f1f20;
+      --muted: #bdbdbd;
+      --accent: #ff4c4c;
+      --green: #14b214;
+      --card: #2a2a2a;
+      --input: #232324;
+    }
 
-  .top-nav{display:flex;justify-content:flex-end;gap:18px;align-items:center;margin-bottom:18px}
-  .top-nav a{color:#9e9e9e;text-decoration:none}
-  .login-button{background:var(--accent);border-radius:10px;padding:8px 14px;border:none;color:#000;font-weight:700;cursor:pointer}
+    html {
+      scroll-behavior: smooth;
+    }
 
-  /* ---------- CARD / GRID BASE ---------- */
-  .card-container{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px;}
-  .card{
-    background:var(--panel);border-radius:14px;padding:18px;color:#ddd;display:flex;flex-direction:column;gap:12px;
-    box-shadow:0 4px 32px #000a, 0 1.5px 8px #ff4c4c11;
-    position:relative;overflow:hidden;
-    transition:transform 0.35s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
-    animation: card-pop 0.8s cubic-bezier(.4,2,.6,1) backwards;
-  }
-  .card:hover {
-    transform:translateY(-12px) scale(1.045) rotate(-1.5deg);
-    box-shadow:0 8px 40px #ff4c4c33, 0 2px 16px #14b21433;
-    z-index:2;
-  }
-  @keyframes card-pop {
-    from { opacity:0; transform:translateY(60px) scale(0.95); }
-    to { opacity:1; transform:none; }
-  }
-  .card-emoji{
-    font-size:42px;background:#333;width:70px;height:70px;border-radius:12px;display:flex;align-items:center;justify-content:center;
-    box-shadow:0 2px 12px #14b21433;
-    transition:background 0.3s, transform 0.3s;
-    animation: emoji-float 2.5s infinite alternate cubic-bezier(.4,2,.6,1);
-  }
-  .card:hover .card-emoji{
-    background:var(--green);color:#000;transform:scale(1.13) rotate(8deg);
-    box-shadow:0 4px 24px #14b21455;
-  }
-  @keyframes emoji-float {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-10px) scale(1.08); }
-  }
-  .card-title{color:var(--accent);font-weight:800;font-size:1.25rem;letter-spacing:0.5px;transition:color 0.3s;}
-  .card:hover .card-title{color:var(--green);}
-  .card-desc{color:#bdbdbd;font-size:0.95rem;transition:color 0.3s;}
-  .card:hover .card-desc{color:#fff;}
-  .card-button{
-    background:var(--accent);border:none;padding:10px 12px;border-radius:10px;color:#000;font-weight:800;cursor:pointer;align-self:flex-start;
-    box-shadow:0 2px 12px #ff4c4c33;
-    transition:background 0.3s, color 0.3s, box-shadow 0.3s;
-    position:relative;overflow:hidden;
-  }
-  .card-button:hover{
-    background:var(--green);color:#fff;box-shadow:0 4px 24px #14b21455;
-  }
-  .card-button:active::after{
-    content:'';position:absolute;left:50%;top:50%;width:120%;height:120%;background:radial-gradient(circle,#fff3 10%,transparent 70%);transform:translate(-50%,-50%);pointer-events:none;animation:ripple 0.5s linear;
-  }
-  @keyframes ripple {
-    from { opacity:0.7; }
-    to { opacity:0; }
-  }
+    body {
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: #e6e6e6;
+      display: flex;
+      min-height: 100vh;
+      animation: bg-move 18s linear infinite alternate;
+      background: linear-gradient(120deg, #121212 0%, #232324 100%);
+      background-size: 200% 200%;
+    }
 
-  /* ---------- FACULTY FINDER LAYOUT ---------- */
-  .page-header{font-size:44px;color:#ff6b6b;margin-bottom:6px;font-weight:900}
-  .page-subheader{color:var(--green);font-size:18px;margin-bottom:20px}
+    @keyframes bg-move {
+      0% {
+        background-position: 0% 50%;
+      }
 
-  .finder-controls{display:flex;gap:16px;align-items:center;margin-bottom:20px;flex-wrap:wrap}
-  .search-input{
-    flex:1;min-width:280px;height:56px;background:var(--input);border-radius:14px;padding:12px 16px;display:flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,0.03)
-  }
-  .search-input input{background:transparent;border:0;color:#dcdcdc;font-size:16px;width:100%;outline:none}
-  .dropdown{
-    width:220px;height:56px;border-radius:14px;background:var(--input);display:flex;align-items:center;justify-content:space-between;padding:0 14px;color:#ddd;cursor:pointer;border:1px solid rgba(255,255,255,0.03)
-  }
+      100% {
+        background-position: 100% 50%;
+      }
+    }
 
-  /* Faculty grid cards */
-  .faculty-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-  .faculty-card{
-    background:var(--panel);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:10px;min-height:220px;
-    box-shadow:0 6px 16px rgba(0,0,0,0.6);
-    transition:transform 0.3s, box-shadow 0.3s;
-    animation: card-pop 0.8s cubic-bezier(.4,2,.6,1) backwards;
-    position:relative;overflow:hidden;
-  }
-  .faculty-card:hover {
-    transform:translateY(-10px) scale(1.04) rotate(1.5deg);
-    box-shadow:0 8px 40px #14b21433, 0 2px 16px #ff4c4c33;
-    z-index:2;
-  }
-  .faculty-name{color:var(--green);font-weight:900;font-size:20px;letter-spacing:0.4px}
-  .faculty-role{color:#bfbfbf;font-weight:600;font-size:14px}
-  .faculty-meta{display:flex;flex-direction:column;gap:8px;color:#cfcfcf;margin-top:6px;font-size:14px}
-  .meta-row{display:flex;align-items:center;gap:10px;opacity:0.95}
+    /* ---------- SIDEBAR ---------- */
+    .sidebar {
+      width: 250px;
+      background: #181818;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      border-right: 1px solid rgba(255, 255, 255, 0.02);
+      overflow-y: auto;
+      box-shadow: 0 0 32px 0 rgba(255, 76, 76, 0.08);
+      animation: sidebar-float 4s ease-in-out infinite alternate;
+    }
 
-  .email-link{color:#dcdcdc;text-decoration:none}
-  .email-link:hover{text-decoration:underline}
+    @keyframes sidebar-float {
+      0% {
+        transform: translateY(0px);
+      }
 
-  /* pill dept on card */
-  .dept-pill{background:#2a2a2a;padding:8px 10px;border-radius:999px;color:#dcdcdc;font-weight:700;font-size:13px;align-self:flex-end}
+      100% {
+        transform: translateY(10px);
+      }
+    }
 
-  /* What's in Mess styles (reused) */
-  .mess-tabs, .day-tabs, .meal-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  .mess-tab, .day-tab, .meal-tab {
-    cursor: pointer;
-    padding: 8px 16px;
-    border-radius: 25px;
-    user-select: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-    background-color: #2a2a2a;
-    color: #bbb;
-    transition: background-color 0.25s ease, color 0.25s ease;
-  }
-  .mess-tab.active, .day-tab.active, .meal-tab.active {
-    background-color: var(--green);
-    color: black;
-  }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      font-weight: 800;
+      font-size: 19px;
+      letter-spacing: 1.5px;
+      transition: transform 0.3s cubic-bezier(.4, 2, .6, 1);
+    }
 
-  .meal-tab.snacks.active {
-    background-color: #3a83f1;
-    color: white;
-    border: 3px solid #ffd700;
-    position: relative;
-  }
-  .meal-tab.snacks.active::after {
-    content: "NOW";
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background-color: #ffd700;
-    color: #121212;
-    padding: 2px 6px;
-    font-size: 0.75rem;
-    font-weight: 900;
-    border-radius: 12px;
-  }
+    .logo:hover {
+      transform: scale(1.08) rotate(-2deg);
+      text-shadow: 0 2px 16px #ff4c4c44;
+    }
 
-  .meal-section {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
+    .logo .icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      box-shadow: 0 2px 12px #ff4c4c55;
+      animation: icon-bounce 2.2s infinite cubic-bezier(.6, 0, .4, 1);
+      transition: box-shadow 0.3s;
+    }
 
-  .item-box {
-    background-color: #1a1a1a;
-    border-radius: 12px;
-    padding: 12px 20px;
-    min-width: 100px;
-    font-weight: 700;
-    text-align: center;
-    user-select: none;
-    cursor: default;
-    border: 2px solid transparent;
-    color: #ddd;
-  }
+    @keyframes icon-bounce {
 
-  
+      0%,
+      100% {
+        transform: translateY(0);
+      }
 
-  /* QuickServe food cards */
-  .food-card-container{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
-  .food-card{
-    background:var(--panel);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:10px;
-    box-shadow:0 2px 16px #000a, 0 1.5px 8px #ff4c4c11;
-    position:relative;overflow:hidden;
-    transition:transform 0.35s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
-    animation: foodcard-pop 0.8s cubic-bezier(.4,2,.6,1) backwards;
-  }
-  .food-card:hover {
-    transform:translateY(-10px) scale(1.045) rotate(-1.5deg);
-    box-shadow:0 8px 40px #ff4c4c33, 0 2px 16px #14b21433;
-    z-index:2;
-  }
-  @keyframes foodcard-pop {
-    from { opacity:0; transform:translateY(60px) scale(0.95); }
-    to { opacity:1; transform:none; }
-  }
-  .food-card img{width:100%;height:140px;object-fit:cover;border-radius:8px;transition:transform 0.3s, box-shadow 0.3s;}
-  .food-card:hover img{transform:scale(1.07) rotate(-2deg);box-shadow:0 4px 24px #14b21455;}
-  .food-info h3{margin:0;color:#fff;transition:color 0.3s;}
-  .food-card:hover .food-info h3{color:var(--green);}
+      50% {
+        transform: translateY(-8px) scale(1.12);
+      }
+    }
 
-  /* Responsive adjustments */
-  @media (max-width:1200px){
-    .faculty-grid{grid-template-columns:repeat(3,1fr)}
-  }
-  @media (max-width:900px){
-    .sidebar{display:none}
-    .main{padding:18px}
-    .faculty-grid{grid-template-columns:repeat(2,1fr)}
-    .page-header{font-size:34px}
-  }
-  @media (max-width:560px){
-    .faculty-grid{grid-template-columns:1fr}
-    .finder-controls{flex-direction:column;align-items:stretch}
-    .dropdown{width:100%}
-  }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      color: #b2b2b2;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s, transform 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
 
-  /* small helper visuals for icons */
-  .icon-svg{width:16px;height:16px;opacity:0.9}
-  /* ----- Login modal ----- */
-  /* backdrop sits behind the modal content (z-index:1) so the dialog stays sharp */
-  .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:1000}
-  .modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.55);z-index:1;-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
-  .modal-content{position:relative;z-index:2;background:var(--panel);padding:18px;border-radius:12px;min-width:320px;max-width:420px;color:#fff;box-shadow:0 8px 36px rgba(0,0,0,0.7)}
-  .modal-content h3{margin:0 0 8px 0;font-size:18px}
-  .modal-content input{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:var(--input);color:#e6e6e6;margin-top:8px}
-  .modal-actions{Display:flex;gap:10px;justify-content:flex-end;margin-top:12px}
-  .explore-blog-full {
-  background: var(--panel);
-  border-radius: 18px;
-  padding: 26px;
-  box-shadow: 0 6px 24px #000a;
-  margin-top: 20px;
-  animation: blogFade 0.6s ease;
-}
+    .nav-item:hover {
+      background: linear-gradient(90deg, #232324 60%, #ff4c4c22 100%);
+      color: #fff;
+      transform: translateX(6px) scale(1.04);
+      box-shadow: 0 2px 16px #ff4c4c22;
+    }
 
-@keyframes blogFade {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: none; }
-}
+    .nav-item.active {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 2px 16px #ff4c4c55;
+      transform: scale(1.06);
+    }
 
-.blog-header h1 {
-  color: var(--accent);
-  font-size: 32px;
-  font-weight: 900;
-  margin-bottom: 18px;
-}
-/* ================= PREMIUM BLOG LAYOUT ================= */
+    .nav-item .icon {
+      width: 36px;
+      height: 36px;
+      background: #2b2b2b;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s, transform 0.3s;
+    }
 
-.premium-blog {
-  max-width: 850px;
-  margin: auto;
-  padding: 20px 0 80px 0;
-  animation: fadeIn 0.6s ease;
-}
+    .nav-item:hover .icon {
+      background: var(--accent);
+      transform: scale(1.12) rotate(-8deg);
+    }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: none; }
-}
+    /* ---------- MAIN ---------- */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: auto;
+      padding: 28px 34px;
+      animation: main-fadein 1.2s cubic-bezier(.4, 2, .6, 1);
+    }
 
-/* --- HERO SECTION --- */
-.blog-hero {
-  width: 100%;
-  height: 360px;
-  border-radius: 18px;
-  overflow: hidden;
-  position: relative;
-  margin-bottom: 28px;
-  box-shadow: 0px 10px 30px #0007;
-}
+    @keyframes main-fadein {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
 
-.blog-hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(65%);
-}
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
 
-.blog-hero-title {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  color: #fff;
-  font-size: 34px;
-  font-weight: 900;
-  max-width: 90%;
-  line-height: 1.2;
-  text-shadow: 0 4px 14px #000;
-}
+    .top-nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 18px
+    }
 
-/* --- CONTENT --- */
-.premium-content {
-  font-size: 20px;
-  line-height: 1.8;
-  color: #d7d7d7;
-}
+    .top-nav a {
+      color: #9e9e9e;
+      text-decoration: none
+    }
 
-.premium-content p {
-  margin: 22px 0;
-}
+    .login-button {
+      background: var(--accent);
+      border-radius: 10px;
+      padding: 8px 14px;
+      border: none;
+      color: #000;
+      font-weight: 700;
+      cursor: pointer
+    }
 
-.premium-content strong {
-  color: #fff;
-}
+    /* ---------- CARD / GRID BASE ---------- */
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 22px;
+    }
 
-/* DROP CAP style */
-.premium-content p:first-child::first-letter {
-  float: left;
-  font-size: 4rem;
-  line-height: 1;
-  padding-right: 10px;
-  padding-left: 2px;
-  font-weight: 900;
-  color: var(--accent);
-}
+    .card {
+      background: var(--panel);
+      border-radius: 14px;
+      padding: 18px;
+      color: #ddd;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: 0 4px 32px #000a, 0 1.5px 8px #ff4c4c11;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s cubic-bezier(.4, 2, .6, 1), box-shadow 0.3s;
+      animation: card-pop 0.8s cubic-bezier(.4, 2, .6, 1) backwards;
+    }
 
-/* SECTION HEADERS */
-.blog-section-title {
-  font-size: 26px;
-  font-weight: 900;
-  margin-top: 32px;
-  margin-bottom: 10px;
-  color: var(--green);
-}
+    .card:hover {
+      transform: translateY(-12px) scale(1.045) rotate(-1.5deg);
+      box-shadow: 0 8px 40px #ff4c4c33, 0 2px 16px #14b21433;
+      z-index: 2;
+    }
 
-/* --- NAVIGATION BUTTONS --- */
-.blog-nav {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 40px;
-}
+    @keyframes card-pop {
+      from {
+        opacity: 0;
+        transform: translateY(60px) scale(0.95);
+      }
 
-.blog-btn {
-  background: #222;
-  padding: 12px 20px;
-  border-radius: 12px;
-  border: 1px solid #333;
-  color: #e4e4e4;
-  cursor: pointer;
-  font-weight: 700;
-  transition: 0.25s;
-}
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
 
-.blog-btn:hover {
-  background: var(--green);
-  color: #000;
-  box-shadow: 0px 6px 20px #14b21455;
-  transform: translateY(-3px);
-}
+    .card-emoji {
+      font-size: 42px;
+      background: #333;
+      width: 70px;
+      height: 70px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 12px #14b21433;
+      transition: background 0.3s, transform 0.3s;
+      animation: emoji-float 2.5s infinite alternate cubic-bezier(.4, 2, .6, 1);
+    }
 
-.blog-btn:active {
-  transform: scale(0.97);
-}
+    .card:hover .card-emoji {
+      background: var(--green);
+      color: #000;
+      transform: scale(1.13) rotate(8deg);
+      box-shadow: 0 4px 24px #14b21455;
+    }
 
-.blog-back-wrap {
-  text-align: center;
-  margin-top: 40px;
-}
+    @keyframes emoji-float {
+      0% {
+        transform: translateY(0);
+      }
 
-/* --- PROGRESS BAR --- */
-.blog-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 4px;
-  background: var(--accent);
-  width: 0%;
-  z-index: 10000;
-  transition: width 0.15s;
-}
+      100% {
+        transform: translateY(-10px) scale(1.08);
+      }
+    }
 
-/* ---------- BLOG NAV BUTTONS ---------- */
-.blog-navigation {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 35px;
-  max-width: 780px;
-  margin-left: auto;
-  margin-right: auto;
-}
+    .card-title {
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+    }
 
-.blog-nav-btn {
-  background: var(--accent);
-  color: #000;
-  font-weight: 800;
-  padding: 12px 22px;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  box-shadow: 0 4px 14px #ff4c4c44;
-  transition: 0.25s;
-}
+    .card:hover .card-title {
+      color: var(--green);
+    }
 
-.blog-nav-btn:hover {
-  background: var(--green);
-  color: #121212;
-  box-shadow: 0 6px 24px #14b21455;
-  transform: translateY(-3px);
-}
+    .card-desc {
+      color: #bdbdbd;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
 
-.blog-nav-btn:active {
-  transform: scale(0.97);
-}
+    .card:hover .card-desc {
+      color: #fff;
+    }
 
+    .card-button {
+      background: var(--accent);
+      border: none;
+      padding: 10px 12px;
+      border-radius: 10px;
+      color: #000;
+      font-weight: 800;
+      cursor: pointer;
+      align-self: flex-start;
+      box-shadow: 0 2px 12px #ff4c4c33;
+      transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
 
-/* ---------- BACK TO EXPLORE BUTTON ---------- */
-.blog-back {
-  text-align: center;
-  margin-top: 40px;
-}
+    .card-button:hover {
+      background: var(--green);
+      color: #fff;
+      box-shadow: 0 4px 24px #14b21455;
+    }
 
-.blog-back-btn {
-  background: #333;
-  color: #e6e6e6;
-  padding: 12px 24px;
-  font-weight: 700;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  transition: 0.25s;
-  box-shadow: 0 2px 12px #0007;
-}
+    .card-button:active::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 120%;
+      height: 120%;
+      background: radial-gradient(circle, #fff3 10%, transparent 70%);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      animation: ripple 0.5s linear;
+    }
 
-.blog-back-btn:hover {
-  background: var(--green);
-  color: #000;
-  transform: translateY(-3px);
-  box-shadow: 0 4px 20px #14b21455;
-}
+    @keyframes ripple {
+      from {
+        opacity: 0.7;
+      }
 
-.blog-back-btn:active {
-  transform: scale(0.97);
-}
+      to {
+        opacity: 0;
+      }
+    }
 
+    /* ---------- FACULTY FINDER LAYOUT ---------- */
+    .page-header {
+      font-size: 44px;
+      color: #ff6b6b;
+      margin-bottom: 6px;
+      font-weight: 900
+    }
 
-.blog-image img {
-  width: 100%;
-  max-height: 380px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px #0008;
-  margin-bottom: 22px;
-}
+    .page-subheader {
+      color: var(--green);
+      font-size: 18px;
+      margin-bottom: 20px
+    }
 
-.blog-content p {
-.blog-content {
-  max-width: 780px;
-  margin: auto;
-  font-size: 18px;
-  line-height: 1.75;
-  color: #e4e4e4;
-}
+    .finder-controls {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap
+    }
 
-.blog-content p {
-  margin: 20px 0;
-  font-size: 18px;
-  line-height: 1.75;
-  color: #d6d6d6;
-}
+    .search-input {
+      flex: 1;
+      min-width: 280px;
+      height: 56px;
+      background: var(--input);
+      border-radius: 14px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.03)
+    }
 
-.blog-content p:first-child {
-  margin-top: 0;
-}
+    .search-input input {
+      background: transparent;
+      border: 0;
+      color: #dcdcdc;
+      font-size: 16px;
+      width: 100%;
+      outline: none
+    }
 
-.blog-content strong {
-  color: #fff;
-}
+    .dropdown {
+      width: 220px;
+      height: 56px;
+      border-radius: 14px;
+      background: var(--input);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px;
+      color: #ddd;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.03)
+    }
 
-.blog-header h1 {
-  max-width: 780px;
-  margin: 0 auto 20px auto;
-}
+    /* Faculty grid cards */
+    .faculty-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px
+    }
 
-  margin: 14px 0;
-  line-height: 1.65;
-  font-size: 17px;
-  color: #dcdcdc;
-}
+    .faculty-card {
+      background: var(--panel);
+      border-radius: 18px;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 220px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: card-pop 0.8s cubic-bezier(.4, 2, .6, 1) backwards;
+      position: relative;
+      overflow: hidden;
+    }
 
-.blog-navigation {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 24px;
-}
-@media (max-width: 768px) {
-  .blog-content {
-    padding: 0 14px;
-  }
-}
+    .faculty-card:hover {
+      transform: translateY(-10px) scale(1.04) rotate(1.5deg);
+      box-shadow: 0 8px 40px #14b21433, 0 2px 16px #ff4c4c33;
+      z-index: 2;
+    }
+
+    .faculty-name {
+      color: var(--green);
+      font-weight: 900;
+      font-size: 20px;
+      letter-spacing: 0.4px
+    }
+
+    .faculty-role {
+      color: #bfbfbf;
+      font-weight: 600;
+      font-size: 14px
+    }
+
+    .faculty-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      color: #cfcfcf;
+      margin-top: 6px;
+      font-size: 14px
+    }
+
+    .meta-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0.95
+    }
+
+    .email-link {
+      color: #dcdcdc;
+      text-decoration: none
+    }
+
+    .email-link:hover {
+      text-decoration: underline
+    }
+
+    /* pill dept on card */
+    .dept-pill {
+      background: #2a2a2a;
+      padding: 8px 10px;
+      border-radius: 999px;
+      color: #dcdcdc;
+      font-weight: 700;
+      font-size: 13px;
+      align-self: flex-end
+    }
+
+    /* What's in Mess styles (reused) */
+    .mess-tabs,
+    .day-tabs,
+    .meal-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .mess-tab,
+    .day-tab,
+    .meal-tab {
+      cursor: pointer;
+      padding: 8px 16px;
+      border-radius: 25px;
+      user-select: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      background-color: #2a2a2a;
+      color: #bbb;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    .mess-tab.active,
+    .day-tab.active,
+    .meal-tab.active {
+      background-color: var(--green);
+      color: black;
+    }
+
+    .meal-tab.snacks.active {
+      background-color: #3a83f1;
+      color: white;
+      border: 3px solid #ffd700;
+      position: relative;
+    }
+
+    .meal-tab.snacks.active::after {
+      content: "NOW";
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background-color: #ffd700;
+      color: #121212;
+      padding: 2px 6px;
+      font-size: 0.75rem;
+      font-weight: 900;
+      border-radius: 12px;
+    }
+
+    .meal-section {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .item-box {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      padding: 12px 20px;
+      min-width: 100px;
+      font-weight: 700;
+      text-align: center;
+      user-select: none;
+      cursor: default;
+      border: 2px solid transparent;
+      color: #ddd;
+    }
 
 
-</style>
-</style>
-<script>
-// --- Explore Campus Blog Data ---
-const exploreCampusBlogs = {
-  'SportX Arena': {
-    title: 'SportX: The Iron Cathedral of "The League"',
-    image: 'https://woxsen.edu.in/uploads/A20240611064133.webp',
-    content: `In the chaotic life of a university student, between deadlines, assignments, and back-to-back lectures, you need an outlet. You need a place where the mental noise quiets down and the physical grind takes over. At Woxsen University, that sanctuary is SportX.
+
+    /* QuickServe food cards */
+    .food-card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px
+    }
+
+    .food-card {
+      background: var(--panel);
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 2px 16px #000a, 0 1.5px 8px #ff4c4c11;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s cubic-bezier(.4, 2, .6, 1), box-shadow 0.3s;
+      animation: foodcard-pop 0.8s cubic-bezier(.4, 2, .6, 1) backwards;
+    }
+
+    .food-card:hover {
+      transform: translateY(-10px) scale(1.045) rotate(-1.5deg);
+      box-shadow: 0 8px 40px #ff4c4c33, 0 2px 16px #14b21433;
+      z-index: 2;
+    }
+
+    @keyframes foodcard-pop {
+      from {
+        opacity: 0;
+        transform: translateY(60px) scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .food-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .food-card:hover img {
+      transform: scale(1.07) rotate(-2deg);
+      box-shadow: 0 4px 24px #14b21455;
+    }
+
+    .food-info h3 {
+      margin: 0;
+      color: #fff;
+      transition: color 0.3s;
+    }
+
+    .food-card:hover .food-info h3 {
+      color: var(--green);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width:1200px) {
+      .faculty-grid {
+        grid-template-columns: repeat(3, 1fr)
+      }
+    }
+
+    @media (max-width:900px) {
+      .sidebar {
+        display: none
+      }
+
+      .main {
+        padding: 18px
+      }
+
+      .faculty-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .page-header {
+        font-size: 34px
+      }
+    }
+
+    @media (max-width:560px) {
+      .faculty-grid {
+        grid-template-columns: 1fr
+      }
+
+      .finder-controls {
+        flex-direction: column;
+        align-items: stretch
+      }
+
+      .dropdown {
+        width: 100%
+      }
+    }
+
+    /* small helper visuals for icons */
+    .icon-svg {
+      width: 16px;
+      height: 16px;
+      opacity: 0.9
+    }
+
+    /* ----- Login modal ----- */
+    /* backdrop sits behind the modal content (z-index:1) so the dialog stays sharp */
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000
+    }
+
+    .modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 1;
+      -webkit-backdrop-filter: blur(3px);
+      backdrop-filter: blur(3px)
+    }
+
+    .modal-content {
+      position: relative;
+      z-index: 2;
+      background: var(--panel);
+      padding: 18px;
+      border-radius: 12px;
+      min-width: 320px;
+      max-width: 420px;
+      color: #fff;
+      box-shadow: 0 8px 36px rgba(0, 0, 0, 0.7)
+    }
+
+    .modal-content h3 {
+      margin: 0 0 8px 0;
+      font-size: 18px
+    }
+
+    .modal-content input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      background: var(--input);
+      color: #e6e6e6;
+      margin-top: 8px
+    }
+
+    .modal-actions {
+      Display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      margin-top: 12px
+    }
+
+    .explore-blog-full {
+      background: var(--panel);
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: 0 6px 24px #000a;
+      margin-top: 20px;
+      animation: blogFade 0.6s ease;
+    }
+
+    @keyframes blogFade {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .blog-header h1 {
+      color: var(--accent);
+      font-size: 32px;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    /* ================= PREMIUM BLOG LAYOUT ================= */
+
+    .premium-blog {
+      max-width: 850px;
+      margin: auto;
+      padding: 20px 0 80px 0;
+      animation: fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* --- HERO SECTION --- */
+    .blog-hero {
+      width: 100%;
+      height: 360px;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 28px;
+      box-shadow: 0px 10px 30px #0007;
+    }
+
+    .blog-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(65%);
+    }
+
+    .blog-hero-title {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: #fff;
+      font-size: 34px;
+      font-weight: 900;
+      max-width: 90%;
+      line-height: 1.2;
+      text-shadow: 0 4px 14px #000;
+    }
+
+    /* --- CONTENT --- */
+    .premium-content {
+      font-size: 20px;
+      line-height: 1.8;
+      color: #d7d7d7;
+    }
+
+    .premium-content p {
+      margin: 22px 0;
+    }
+
+    .premium-content strong {
+      color: #fff;
+    }
+
+    /* DROP CAP style */
+    .premium-content p:first-child::first-letter {
+      float: left;
+      font-size: 4rem;
+      line-height: 1;
+      padding-right: 10px;
+      padding-left: 2px;
+      font-weight: 900;
+      color: var(--accent);
+    }
+
+    /* SECTION HEADERS */
+    .blog-section-title {
+      font-size: 26px;
+      font-weight: 900;
+      margin-top: 32px;
+      margin-bottom: 10px;
+      color: var(--green);
+    }
+
+    /* --- NAVIGATION BUTTONS --- */
+    .blog-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+
+    .blog-btn {
+      background: #222;
+      padding: 12px 20px;
+      border-radius: 12px;
+      border: 1px solid #333;
+      color: #e4e4e4;
+      cursor: pointer;
+      font-weight: 700;
+      transition: 0.25s;
+    }
+
+    .blog-btn:hover {
+      background: var(--green);
+      color: #000;
+      box-shadow: 0px 6px 20px #14b21455;
+      transform: translateY(-3px);
+    }
+
+    .blog-btn:active {
+      transform: scale(0.97);
+    }
+
+    .blog-back-wrap {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    /* --- PROGRESS BAR --- */
+    .blog-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: var(--accent);
+      width: 0%;
+      z-index: 10000;
+      transition: width 0.15s;
+    }
+
+    /* ---------- BLOG NAV BUTTONS ---------- */
+    .blog-navigation {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 35px;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .blog-nav-btn {
+      background: var(--accent);
+      color: #000;
+      font-weight: 800;
+      padding: 12px 22px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px #ff4c4c44;
+      transition: 0.25s;
+    }
+
+    .blog-nav-btn:hover {
+      background: var(--green);
+      color: #121212;
+      box-shadow: 0 6px 24px #14b21455;
+      transform: translateY(-3px);
+    }
+
+    .blog-nav-btn:active {
+      transform: scale(0.97);
+    }
+
+
+    /* ---------- BACK TO EXPLORE BUTTON ---------- */
+    .blog-back {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .blog-back-btn {
+      background: #333;
+      color: #e6e6e6;
+      padding: 12px 24px;
+      font-weight: 700;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: 0.25s;
+      box-shadow: 0 2px 12px #0007;
+    }
+
+    .blog-back-btn:hover {
+      background: var(--green);
+      color: #000;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 20px #14b21455;
+    }
+
+    .blog-back-btn:active {
+      transform: scale(0.97);
+    }
+
+
+    .blog-image img {
+      width: 100%;
+      max-height: 380px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px #0008;
+      margin-bottom: 22px;
+    }
+
+    .blog-content p {
+      .blog-content {
+        max-width: 780px;
+        margin: auto;
+        font-size: 18px;
+        line-height: 1.75;
+        color: #e4e4e4;
+      }
+
+      .blog-content p {
+        margin: 20px 0;
+        font-size: 18px;
+        line-height: 1.75;
+        color: #d6d6d6;
+      }
+
+      .blog-content p:first-child {
+        margin-top: 0;
+      }
+
+      .blog-content strong {
+        color: #fff;
+      }
+
+      .blog-header h1 {
+        max-width: 780px;
+        margin: 0 auto 20px auto;
+      }
+
+      margin: 14px 0;
+      line-height: 1.65;
+      font-size: 17px;
+      color: #dcdcdc;
+    }
+
+    .blog-navigation {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .blog-content {
+        padding: 0 14px;
+      }
+    }
+  </style>
+  </style>
+  <script>
+    // --- Explore Campus Blog Data ---
+    const exploreCampusBlogs = {
+      'SportX Arena': {
+        title: 'SportX: The Iron Cathedral of "The League"',
+        image: 'https://woxsen.edu.in/uploads/A20240611064133.webp',
+        content: `In the chaotic life of a university student, between deadlines, assignments, and back-to-back lectures, you need an outlet. You need a place where the mental noise quiets down and the physical grind takes over. At Woxsen University, that sanctuary is SportX.
 
 Sitting proudly within "The League"—our colossal 60-acre sports arena—SportX is not just a building; it is a statement. It tells you that here, we don't just train the mind; we forge the body.
 
@@ -614,11 +1074,11 @@ The Squash Courts: These are enclosed glass boxes of intensity. The pro-grade fl
 The Badminton Arena: This isn't a backyard setup. With BWF-certified flooring, the impact on your knees is cushioned, allowing you to jump higher and lunge faster. The height of the ceiling ensures that even your highest lob shot won’t hit a rafter.
 
 The After-Burn The experience of SportX ends at the health bar. There is a specific ritual to grabbing a protein shake or a hydration drink after a session, sitting on the steps outside, and watching the sun go down over the campus. It’s the moment you realize that while you came to university for a degree, places like SportX are where you build the discipline to use it.`
-  },
-  'Central Library': {
-    title: 'Central Library: The Vithal Gandhi Centre: A Fortress of Solitude',
-    image: 'https://woxsen.edu.in/uploads/A20240330030632.webp',
-    content: `If Woxsen is a kingdom, the Vithal Gandhi Centre (The Library) is its temple. It is easily one of the most photographed, talked about, and revered structures on our campus. But to treat it just as a "cool building" is to miss the point. This 70,000 sq. ft. monolith is a meticulously designed machine for learning.
+      },
+      'Central Library': {
+        title: 'Central Library: The Vithal Gandhi Centre: A Fortress of Solitude',
+        image: 'https://woxsen.edu.in/uploads/A20240330030632.webp',
+        content: `If Woxsen is a kingdom, the Vithal Gandhi Centre (The Library) is its temple. It is easily one of the most photographed, talked about, and revered structures on our campus. But to treat it just as a "cool building" is to miss the point. This 70,000 sq. ft. monolith is a meticulously designed machine for learning.
 
 The "Inception" Architecture Stepping through the glass doors, the first sensation is a shift in atmosphere. The air feels cooler, crisper. You are greeted by an architectural marvel—an open atrium that slices through four stories of concrete and steel. It creates a visual connection between every floor. If you stand in the center and look up, the geometry of the staircases and the walkways looks like an M.C. Escher painting or a scene from the movie Inception.
 
@@ -633,11 +1093,11 @@ RFID Automation: Gone are the days of signing paper cards. You grab a book, plac
 The Collection: The shelves are a treasure hunt. With over 18,000 distinct titles, you can drift from the latest Harvard Business Review to niche books on Typography or AI ethics. And if you can’t find the physical copy, the digital repository opens up 33,000+ online resources.
 
 Whether you are huddled in a private pod for deep work or brainstorming in the collaborative zones, the Library demands your best version. It is the intellectual soul of Woxsen.`
-  },
-  'The Oval': {
-    title: 'The Oval: The Living Room of Campus',
-    image: 'https://woxsen.edu.in/uploads/A20240611064133.webp',
-    content: `If you ask any student where the "real" campus life happens, they won’t say the classroom. They will point you to The Oval. Technically, it’s our Mess and dining facility. But spiritually? It’s the town square. It’s the living room. It’s home.
+      },
+      'The Oval': {
+        title: 'The Oval: The Living Room of Campus',
+        image: 'https://woxsen.edu.in/uploads/A20240611064133.webp',
+        content: `If you ask any student where the "real" campus life happens, they won’t say the classroom. They will point you to The Oval. Technically, it’s our Mess and dining facility. But spiritually? It’s the town square. It’s the living room. It’s home.
 
 The Mess: A Culinary Colosseum The structure itself is impressive—an airy, open design that prevents the space from feeling crowded, even when hundreds of students are eating at once. The ceiling height allows the noise of chatter, laughter, and clinking spoons to rise up, creating a hum of activity that feels welcoming rather than chaotic.
 
@@ -652,11 +1112,11 @@ The Oval Tree: The Icon But the true magic lies just outside the dining hall. St
 The area around the tree is paved and designed with seating ledges that invite you to stay. During the day, it provides shade. But at night, it transforms. With decorative lights strung up and the warm glow from the mess spilling out, it becomes the coziest spot on campus.
 
 The Social Gravity The Oval is where the barriers break down. You’ll find B.Des students sketching on one bench, B.Tech students coding on another, and MBA students discussing stocks on a third—and eventually, they all start talking to each other. It’s the venue for impromptu birthday cake cuttings, guitar jam sessions, and late-night philosophical conversations that go on until the guards tell you to go back to the hostel. The Oval isn’t just where we eat; it’s where we bond.`
-  },
-   'Admin Block': {
-    title: 'Admin Block: The Monolith',
-    image: 'https://live.staticflickr.com/542/31186795203_74626ca1b1_b.jpg',
-    content: `Every great university needs a symbol—an image that comes to mind when you say its name. For us, that symbol is the Admin Block. It is the first building that greets you, and it sets the tone for everything that follows: Grand. bold. Unwavering.
+      },
+      'Admin Block': {
+        title: 'Admin Block: The Monolith',
+        image: 'https://live.staticflickr.com/542/31186795203_74626ca1b1_b.jpg',
+        content: `Every great university needs a symbol—an image that comes to mind when you say its name. For us, that symbol is the Admin Block. It is the first building that greets you, and it sets the tone for everything that follows: Grand. bold. Unwavering.
 
 A Lesson in Brutalism The Admin Block is a masterclass in Brutalist architecture. It rejects the idea that a building needs to be painted or decorated to be beautiful. Instead, it celebrates the raw materials. The massive expanse of grey concrete stands against the blue Hyderabad sky and the green landscape, creating a striking contrast.
 
@@ -667,11 +1127,11 @@ The Golden Hour Spectacle If you want to see the Admin Block comes alive, you ha
 The Nerve Center Functionally, this is the brain of the campus. It houses the Chancellor’s office, the boardroom, and the Admissions department. It’s a place of beginnings and endings. It’s where you nervously walked in to submit your documents on day one, and it’s the backdrop for the photos you’ll take in your graduation robes on your last day.
 
 The Admin Block is more than offices; it is the visual anchor of our Woxsen identity. It stands for the strength of our foundation and the openness of our future.`
-  },
-  'The Race': {
-    title: 'The Race: Under the Lights',
-    image: 'data:image/jpeg;base64,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',
-    content: `There is a specific sound that defines the evenings at Woxsen: the rhythmic thud of running shoes on synthetic rubber and the distant shout of "Pass the ball!" coming from the floodlit arena. This is The Race.
+      },
+      'The Race': {
+        title: 'The Race: Under the Lights',
+        image: 'data:image/jpeg;base64,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',
+        content: `There is a specific sound that defines the evenings at Woxsen: the rhythmic thud of running shoes on synthetic rubber and the distant shout of "Pass the ball!" coming from the floodlit arena. This is The Race.
 
 The Science of Speed Calling it a "ground" is an insult. This is a facility built to World Athletics Class-1 Standards. The track itself is a marvel. It’s a 10-lane synthetic beast equipped with SmarTrack technology. Beneath the surface, magnetic sensors are capable of tracking gait and speed, bringing a level of analytics to the campus that is usually reserved for Olympic training camps. When you run here, the track feels "fast." The energy return from the surface propels you forward, making that evening jog feel effortless.
 
@@ -679,32 +1139,32 @@ The Green Carpet Inside the embrace of the track lies the Football field. This i
 
 Night Mode The Race is beautiful by day, but it is legendary by night. The high-mast floodlights are powerful enough to simulate daylight. When the rest of the campus is dark, The Race is a glowing oval of energy. It serves a dual purpose:
 
-The Arena: For athletes, it’s where the sweat happens. The competition is fierce, and the cheers from the stands (or just friends sitting on the grass) create an electric atmosphere.
+The Arena: For athletes
 
 The Escape: For others, the track at 9 PM is a place for a "mental health walk." Walking the perimeter, with the cool wind blowing and the soft hum of the floodlights, is the best way to clear your head after a long day of lectures.`
-  }
-};
+      }
+    };
 
-// --- Explore Campus Card Click Handler ---
-function addExploreCampusCardEvents() {
-  const container = document.querySelector('.food-card-container');
-  if (!container) return;
-  const cards = container.querySelectorAll('.food-card');
-  cards.forEach(card => {
-    const h3 = card.querySelector('h3');
-    if (!h3) return;
-    card.classList.add('explore-clickable');
-    card.onclick = function() {
-      // Slide out image
-      const img = card.querySelector('img');
-      if (img) img.classList.add('explore-slideout');
-      card.classList.add('explore-slideout');
-      // After slide, show blog
-      setTimeout(() => {
-        const blog = exploreCampusBlogs[h3.textContent.trim()];
-        if (!blog) return;
-        // Remove all cards and show blog
-        pageContent.innerHTML = `
+    // --- Explore Campus Card Click Handler ---
+    function addExploreCampusCardEvents() {
+      const container = document.querySelector('.food-card-container');
+      if (!container) return;
+      const cards = container.querySelectorAll('.food-card');
+      cards.forEach(card => {
+        const h3 = card.querySelector('h3');
+        if (!h3) return;
+        card.classList.add('explore-clickable');
+        card.onclick = function () {
+          // Slide out image
+          const img = card.querySelector('img');
+          if (img) img.classList.add('explore-slideout');
+          card.classList.add('explore-slideout');
+          // After slide, show blog
+          setTimeout(() => {
+            const blog = exploreCampusBlogs[h3.textContent.trim()];
+            if (!blog) return;
+            // Remove all cards and show blog
+            pageContent.innerHTML = `
   <div class="blog-progress" id="blogProgress"></div>
 
   <div class="premium-blog">
@@ -716,9 +1176,9 @@ function addExploreCampusCardEvents() {
 
     <div class="premium-content">
       ${blog.content
-        .split('\n')
-        .map(p => `<p>${p.trim()}</p>`)
-        .join('')}
+                .split('\n')
+                .map(p => `<p>${p.trim()}</p>`)
+                .join('')}
     </div>
 
     <div class="blog-nav">
@@ -732,130 +1192,148 @@ function addExploreCampusCardEvents() {
 
   </div>
 `;
-        
-        document.getElementById('exploreBackBtn').onclick = function() {
-          // Reload explore campus page
-          if (window.loadPage) window.loadPage('explorecampus');
+
+            document.getElementById('exploreBackBtn').onclick = function () {
+              // Reload explore campus page
+              if (window.loadPage) window.loadPage('explorecampus');
+            };
+            // --- Add Next / Previous Navigation ---
+
+            const order = ["SportX Arena", "Central Library", "The Oval", "Admin Block", "The Race"];
+            const currentIndex = order.indexOf(h3.textContent.trim());
+
+            // Helper to reopen correct blog
+            function openAnotherBlog(name) {
+              loadPage("explorecampus");
+              setTimeout(() => {
+                document.querySelectorAll('.food-card h3').forEach(el => {
+                  if (el.textContent.trim() === name) {
+                    el.parentElement.parentElement.click();
+                  }
+                });
+              }, 300);
+            }
+
+            // NEXT
+            document.getElementById("nextBlogBtn").onclick = () => {
+              const next = order[(currentIndex + 1) % order.length];
+              openAnotherBlog(next);
+            };
+
+            // PREVIOUS
+            document.getElementById("prevBlogBtn").onclick = () => {
+              const prev = order[(currentIndex - 1 + order.length) % order.length];
+              openAnotherBlog(prev);
+            };
+
+          }, 600);
         };
-        // --- Add Next / Previous Navigation ---
+      });
+    }
 
-const order = ["SportX Arena", "Central Library", "The Oval", "Admin Block", "The Race"];
-const currentIndex = order.indexOf(h3.textContent.trim());
-
-// Helper to reopen correct blog
-function openAnotherBlog(name){
-  loadPage("explorecampus");
-  setTimeout(() => {
-    document.querySelectorAll('.food-card h3').forEach(el => {
-      if (el.textContent.trim() === name) {
-        el.parentElement.parentElement.click();
-      }
-    });
-  }, 300);
-}
-
-// NEXT
-document.getElementById("nextBlogBtn").onclick = () => {
-  const next = order[(currentIndex + 1) % order.length];
-  openAnotherBlog(next);
-};
-
-// PREVIOUS
-document.getElementById("prevBlogBtn").onclick = () => {
-  const prev = order[(currentIndex - 1 + order.length) % order.length];
-  openAnotherBlog(prev);
-};
-
-      }, 600);
+    // Patch loadPage to add events for explorecampus
+    const origLoadPage = window.loadPage;
+    window.loadPage = function (page) {
+      origLoadPage(page);
+      setTimeout(animateCards, 200);
     };
-  });
-}
 
-// Patch loadPage to add events for explorecampus
-const origLoadPage = window.loadPage;
-window.loadPage = function(page) {
-  origLoadPage(page);
-  setTimeout(animateCards, 200);
-};
+    // --- Live motion: Parallax on mousemove for .main and .sidebar ---
+    document.addEventListener('mousemove', function (e) {
+      const x = (e.clientX / window.innerWidth - 0.5) * 2;
+      const y = (e.clientY / window.innerHeight - 0.5) * 2;
+      document.querySelectorAll('.main, .sidebar').forEach(el => {
+        el.style.transform = `translate3d(${x * 8}px,${y * 8}px,0)`;
+      });
+    });
 
-// --- Live motion: Parallax on mousemove for .main and .sidebar ---
-document.addEventListener('mousemove', function(e) {
-  const x = (e.clientX / window.innerWidth - 0.5) * 2;
-  const y = (e.clientY / window.innerHeight - 0.5) * 2;
-  document.querySelectorAll('.main, .sidebar').forEach(el => {
-    el.style.transform = `translate3d(${x*8}px,${y*8}px,0)`;
-  });
-});
-
-// --- Animate cards in with staggered delay ---
-function animateCards() {
-  document.querySelectorAll('.card, .faculty-card').forEach((el, i) => {
-    el.style.animationDelay = (i * 0.12) + 's';
-  });
-  document.querySelectorAll('.food-card').forEach((el, i) => {
-    el.style.animationDelay = (i * 0.10) + 's';
-  });
-}
-setTimeout(animateCards, 400);
-// Also re-run after page loads
-window.addEventListener('load', animateCards);
-// Re-animate after page loads for quickserve/explorecampus
+    // --- Animate cards in with staggered delay ---
+    function animateCards() {
+      document.querySelectorAll('.card, .faculty-card').forEach((el, i) => {
+        el.style.animationDelay = (i * 0.12) + 's';
+      });
+      document.querySelectorAll('.food-card').forEach((el, i) => {
+        el.style.animationDelay = (i * 0.10) + 's';
+      });
+    }
+    setTimeout(animateCards, 400);
+    // Also re-run after page loads
+    window.addEventListener('load', animateCards);
+    // Re-animate after page loads for quickserve/explorecampus
 
 
-// --- Ripple effect for all .card-button and .action-button ---
-document.addEventListener('click', function(e) {
-  const btn = e.target.closest('.card-button, .action-button');
-  if (!btn) return;
-  const ripple = document.createElement('span');
-  ripple.style.position = 'absolute';
-  ripple.style.left = (e.offsetX || 0) + 'px';
-  ripple.style.top = (e.offsetY || 0) + 'px';
-  ripple.style.width = ripple.style.height = '120px';
-  ripple.style.background = 'radial-gradient(circle,#fff3 10%,transparent 70%)';
-  ripple.style.borderRadius = '50%';
-  ripple.style.pointerEvents = 'none';
-  ripple.style.transform = 'translate(-50%,-50%) scale(0.7)';
-  ripple.style.opacity = '0.7';
-  ripple.style.zIndex = 10;
-  ripple.style.animation = 'ripple 0.5s linear forwards';
-  btn.appendChild(ripple);
-  setTimeout(()=>{ if(ripple.parentNode) ripple.parentNode.removeChild(ripple); }, 500);
-});
-</script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-<script>
-// --- Firebase config ---
-const firebaseConfig = {
-  apiKey: "AIzaSyDfRc0nqslUlDApnwzGFidilp-tHYWz_mE",
-  authDomain: "campus-web-19bed.firebaseapp.com",
-  projectId: "campus-web-19bed",
-  storageBucket: "campus-web-19bed.firebasestorage.app",
-  messagingSenderId: "403842540358",
-  appId: "1:403842540358:web:1bf5a27f80009b7c5dbb47",
-  measurementId: "G-HL9V671NFF"
-};
-firebase.initializeApp(firebaseConfig);
-window.db = firebase.firestore();
-</script>
+    // --- Ripple effect for all .card-button and .action-button ---
+    document.addEventListener('click', function (e) {
+      const btn = e.target.closest('.card-button, .action-button');
+      if (!btn) return;
+      const ripple = document.createElement('span');
+      ripple.style.position = 'absolute';
+      ripple.style.left = (e.offsetX || 0) + 'px';
+      ripple.style.top = (e.offsetY || 0) + 'px';
+      ripple.style.width = ripple.style.height = '120px';
+      ripple.style.background = 'radial-gradient(circle,#fff3 10%,transparent 70%)';
+      ripple.style.borderRadius = '50%';
+      ripple.style.pointerEvents = 'none';
+      ripple.style.transform = 'translate(-50%,-50%) scale(0.7)';
+      ripple.style.opacity = '0.7';
+      ripple.style.zIndex = 10;
+      ripple.style.animation = 'ripple 0.5s linear forwards';
+      btn.appendChild(ripple);
+      setTimeout(() => { if (ripple.parentNode) ripple.parentNode.removeChild(ripple); }, 500);
+    });
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script>
+    // --- Firebase config ---
+    const firebaseConfig = {
+      apiKey: "AIzaSyDfRc0nqslUlDApnwzGFidilp-tHYWz_mE",
+      authDomain: "campus-web-19bed.firebaseapp.com",
+      projectId: "campus-web-19bed",
+      storageBucket: "campus-web-19bed.firebasestorage.app",
+      messagingSenderId: "403842540358",
+      appId: "1:403842540358:web:1bf5a27f80009b7c5dbb47",
+      measurementId: "G-HL9V671NFF"
+    };
+    firebase.initializeApp(firebaseConfig);
+    window.db = firebase.firestore();
+  </script>
 </head>
+
 <body>
 
-  <!-- SIDEBAR -->
   <div class="sidebar" id="sidebar">
-    <div class="logo"><div class="icon">O</div>Students Hub</div>
+    <div class="logo">
+      <div class="icon">O</div>Students Hub
+    </div>
 
-    <!-- Home added at top per Option A -->
-    <div class="nav-item active" data-page="home"><div class="icon">🏠</div><div>Home</div></div>
-    <div class="nav-item" data-page="quickserve"><div class="icon">⚡</div><div>QuickServe</div></div>
-    <div class="nav-item" data-page="facultyfinder"><div class="icon">👩‍🏫</div><div>Faculty Finder</div></div>
-    <div class="nav-item" data-page="whatsinmess"><div class="icon">🍴</div><div>What's in Mess</div></div>
-    <div class="nav-item" data-page="explorecampus"><div class="icon">🗺</div><div>Explore Campus</div></div>
+    <div class="nav-item active" data-page="home">
+      <div class="icon">🏠</div>
+      <div>Home</div>
+    </div>
+    <div class="nav-item" data-page="quickserve">
+      <div class="icon">⚡</div>
+      <div>QuickServe</div>
+    </div>
+    <div class="nav-item" data-page="facultyfinder">
+      <div class="icon">👩‍🏫</div>
+      <div>Faculty Finder</div>
+    </div>
+    <div class="nav-item" data-page="whatsinmess">
+      <div class="icon">🍴</div>
+      <div>What's in Mess</div>
+    </div>
+    <div class="nav-item" data-page="explorecampus">
+      <div class="icon">🗺</div>
+      <div>Explore Campus</div>
+    </div>
     <div style="flex:1"></div>
-    <div class="nav-item" data-page="settings"><div class="icon">⚙</div><div>Settings</div></div>
+    <div class="nav-item" data-page="settings">
+      <div class="icon">⚙</div>
+      <div>Settings</div>
+    </div>
   </div>
 
-  <!-- MAIN -->
   <main class="main" id="main">
     <div class="top-nav">
       <a href="#" id="topHome">Home</a>
@@ -864,11 +1342,9 @@ window.db = firebase.firestore();
       <div id="authState" style="margin-left:12px"></div>
     </div>
 
-    <!-- Page content will be injected here -->
     <div id="pageContent" style="width:100%"></div>
   </main>
 
-  <!-- Login modal (in-page) -->
   <div id="loginModal" class="modal" style="display:none;" aria-hidden="true">
     <div class="modal-backdrop"></div>
     <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
@@ -878,203 +1354,221 @@ window.db = firebase.firestore();
         <input id="loginPass" type="password" placeholder="Password" autocomplete="current-password">
         <div id="loginError" style="color:#f88;margin-top:8px;display:none"></div>
         <div class="modal-actions">
-          <button id="loginCancel" class="action-button" style="background:#444;color:#fff;padding:8px 12px">Cancel</button>
+          <button id="loginCancel" class="action-button"
+            style="background:#444;color:#fff;padding:8px 12px">Cancel</button>
           <button id="loginSubmit" class="action-button" style="padding:8px 12px">Sign in</button>
         </div>
       </div>
     </div>
   </div>
 
-<script>
-/* =========================
-   Protection: disable right-click, keyboard devtools shortcuts,
-   dragging and selecting (while keeping inputs usable)
-   ========================= */
-   window.onscroll = function () {
-  const el = document.getElementById('blogProgress');
-  if (!el) return;
+  <script>
+    /* =========================
+       Protection: disable right-click, keyboard devtools shortcuts,
+       dragging and selecting (while keeping inputs usable)
+       ========================= */
+    window.onscroll = function () {
+      const el = document.getElementById('blogProgress');
+      if (!el) return;
 
-  const docHeight =
-    document.documentElement.scrollHeight - window.innerHeight;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
 
-  const scrolled = (window.scrollY / docHeight) * 100;
-  el.style.width = scrolled + "%";
-};
+      const scrolled = (window.scrollY / docHeight) * 100;
+      el.style.width = scrolled + "%";
+    };
 
-(function(){
-  // disable context menu
-  document.addEventListener('contextmenu', function(e){ e.preventDefault(); }, true);
+    (function () {
+      // disable context menu
+      document.addEventListener('contextmenu', function (e) { e.preventDefault(); }, true);
 
-  // disable dragstart globally
-  document.addEventListener('dragstart', function(e){ e.preventDefault(); }, true);
+      // disable dragstart globally
+      document.addEventListener('dragstart', function (e) { e.preventDefault(); }, true);
 
-  // insert CSS that disables selection/dragging but re-enables inputs/textarea/contenteditable
-  var css = '*{user-select:none !important;-webkit-user-select:none !important;-ms-user-select:none !important;-webkit-user-drag:none !important;} input, textarea, [contenteditable]{user-select:text !important;-webkit-user-select:text !important;-ms-user-select:text !important;}';
-  var _s = document.createElement('style'); _s.type = 'text/css'; _s.appendChild(document.createTextNode(css));
-  (document.head || document.documentElement).appendChild(_s);
+      // insert CSS that disables selection/dragging but re-enables inputs/textarea/contenteditable
+      var css = '*{user-select:none !important;-webkit-user-select:none !important;-ms-user-select:none !important;-webkit-user-drag:none !important;} input, textarea, [contenteditable]{user-select:text !important;-webkit-user-select:text !important;-ms-user-select:text !important;}';
+      var _s = document.createElement('style'); _s.type = 'text/css'; _s.appendChild(document.createTextNode(css));
+      (document.head || document.documentElement).appendChild(_s);
 
-  // block keys: F12, Ctrl+Shift+I, Ctrl+Shift+C, Ctrl+U, Shift+F10
-  document.addEventListener('keydown', function(e){
-    var k = e.key || e.keyIdentifier || '';
-    if(k === 'F12') { e.preventDefault(); e.stopPropagation(); return false; }
-    if(e.ctrlKey && e.shiftKey && (k === 'I' || k === 'i' || k === 'C' || k === 'c')){ e.preventDefault(); e.stopPropagation(); return false; }
-    if(e.ctrlKey && (k === 'U' || k === 'u')){ e.preventDefault(); e.stopPropagation(); return false; }
-    if(e.shiftKey && (k === 'F10')){ e.preventDefault(); e.stopPropagation(); return false; }
-  }, true);
+      // block keys: F12, Ctrl+Shift+I, Ctrl+Shift+C, Ctrl+U, Shift+F10
+      document.addEventListener('keydown', function (e) {
+        var k = e.key || e.keyIdentifier || '';
+        if (k === 'F12') { e.preventDefault(); e.stopPropagation(); return false; }
+        if (e.ctrlKey && e.shiftKey && (k === 'I' || k === 'i' || k === 'C' || k === 'c')) { e.preventDefault(); e.stopPropagation(); return false; }
+        if (e.ctrlKey && (k === 'U' || k === 'u')) { e.preventDefault(); e.stopPropagation(); return false; }
+        if (e.shiftKey && (k === 'F10')) { e.preventDefault(); e.stopPropagation(); return false; }
+      }, true);
 
-  // prevent selection start (safety) and copying/cutting
-  document.addEventListener('selectstart', function(e){
-    var t = e.target;
-    if(t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return; // allow on inputs
-    e.preventDefault();
-  }, true);
-  document.addEventListener('copy', function(e){ e.preventDefault(); }, true);
-  document.addEventListener('cut', function(e){ e.preventDefault(); }, true);
+      // prevent selection start (safety) and copying/cutting
+      document.addEventListener('selectstart', function (e) {
+        var t = e.target;
+        if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return; // allow on inputs
+        e.preventDefault();
+      }, true);
+      document.addEventListener('copy', function (e) { e.preventDefault(); }, true);
+      document.addEventListener('cut', function (e) { e.preventDefault(); }, true);
 
-  // small allowance: allow mousedown focus into inputs/textarea without blocking normal use
-  document.addEventListener('mousedown', function(e){
-    var el = e.target;
-    if(el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable)) return;
-  }, true);
+      // small allowance: allow mousedown focus into inputs/textarea without blocking normal use
+      document.addEventListener('mousedown', function (e) {
+        var el = e.target;
+        if (el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable)) return;
+      }, true);
 
-})();
+    })();
 
-/* =========================
-   App data & helpers
-   ========================= */
+    /* =========================
+       App data & helpers
+       ========================= */
 
-/* small safe esc */
-function escapeHtml(s){ return String(s||'').replace(/[&<>"']/g, ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[ch])); }
+    /* small safe esc */
+    function escapeHtml(s) { return String(s || '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": "&#39;" }[ch])); }
 
-/* -------------------------
-   Authentication helpers
-   ------------------------- */
-async function isAuthenticated(){
-  // Try server-side session first (works when served via the local Node server).
-  try{
-    const res = await fetch('/is-auth', { credentials: 'include' });
-    if(res.ok){
-      const j = await res.json();
-      return !!j.authenticated;
+    /* -------------------------
+       Authentication helpers
+       ------------------------- */
+    async function isAuthenticated() {
+      // Try server-side session first (works when served via the local Node server).
+      try {
+        const res = await fetch('/is-auth', { credentials: 'include' });
+        if (res.ok) {
+          const j = await res.json();
+          return !!j.authenticated;
+        }
+      } catch (e) {
+        // server not available — fall back to localStorage
+      }
+      return localStorage.getItem('authenticated') === 'true';
     }
-  }catch(e){
-    // server not available — fall back to localStorage
-  }
-  return localStorage.getItem('authenticated') === 'true';
-}
 
-function requireAuthRedirect(){
-  // remember where to return after login
-  try{ localStorage.setItem('returnTo', location.href); }catch(e){}
-  // prefer server-hosted login page when available
-  const tryUrl = '/login.html?returnTo=' + encodeURIComponent(location.href);
-  location.href = tryUrl;
-}
-
-// In-page login modal flow (static credentials). Uses a pending callback to continue action after sign-in.
-let _pendingAuthAction = null;
-function showLoginModal(callback){
-  _pendingAuthAction = callback || null;
-  const modal = document.getElementById('loginModal');
-  if(!modal) return;
-  modal.style.display = 'flex';
-  modal.setAttribute('aria-hidden','false');
-  document.getElementById('loginError').style.display = 'none';
-  document.getElementById('loginUser').value = '';
-  document.getElementById('loginPass').value = '';
-  setTimeout(()=> document.getElementById('loginUser').focus(), 10);
-}
-function hideLoginModal(){
-  const modal = document.getElementById('loginModal');
-  if(!modal) return;
-  modal.style.display = 'none';
-  modal.setAttribute('aria-hidden','true');
-  _pendingAuthAction = null;
-}
-async function handleLoginSubmit(){
-  const user = (document.getElementById('loginUser')?.value || '').trim();
-  const pass = document.getElementById('loginPass')?.value || '';
-  // static check — change as needed
-  const OK_USER = 'student';
-  const OK_PASS = 'campus123';
-  if(user === OK_USER && pass === OK_PASS){
-    try{ localStorage.setItem('authenticated','true'); localStorage.setItem('username', user); }catch(e){}
-    hideLoginModal();
-    updateLoginState();
-    // run pending action if present
-    if(typeof _pendingAuthAction === 'function'){
-      const cb = _pendingAuthAction; _pendingAuthAction = null; cb();
+    function requireAuthRedirect() {
+      // remember where to return after login
+      try { localStorage.setItem('returnTo', location.href); } catch (e) { }
+      // prefer server-hosted login page when available
+      const tryUrl = '/login.html?returnTo=' + encodeURIComponent(location.href);
+      location.href = tryUrl;
     }
-    return;
-  }
-  const err = document.getElementById('loginError');
-  err.textContent = 'Invalid username or password'; err.style.display = 'block';
-}
-// wire modal buttons (if modal exists at script time)
-setTimeout(()=>{
-  const s = document.getElementById('loginSubmit');
-  const c = document.getElementById('loginCancel');
-  if(s) s.addEventListener('click', (e)=>{ e.preventDefault(); handleLoginSubmit(); });
-  if(c) c.addEventListener('click', (e)=>{ e.preventDefault(); hideLoginModal(); });
-  // allow Enter key to submit
-  const userEl = document.getElementById('loginUser');
-  const passEl = document.getElementById('loginPass');
-  [userEl, passEl].forEach(el=>{ if(el) el.addEventListener('keydown', (ev)=>{ if(ev.key === 'Enter') handleLoginSubmit(); }); });
-}, 50);
 
-function updateLoginState(){
-  const auth = localStorage.getItem('authenticated') === 'true';
-  const username = localStorage.getItem('username') || '';
-  const container = document.getElementById('authState');
-  if(!container) return;
-  if(auth){
-    container.innerHTML = `<div style="display:flex;align-items:center;gap:10px"><span id="usernameDisplay" style="font-weight:700;color:#fff">${escapeHtml(username)}</span><button id="logoutBtn" class="action-button" style="background:#444;color:#fff;padding:6px 8px">Logout</button></div>`;
-    const lb = document.getElementById('logoutBtn');
-    if(lb) lb.addEventListener('click', (e)=>{ e.preventDefault(); logout(); });
-  } else {
-    container.innerHTML = `<button id="authLoginBtn" class="action-button" style="padding:6px 8px">Login</button>`;
-    const ab = document.getElementById('authLoginBtn');
-    if(ab) ab.addEventListener('click', (e)=>{ e.preventDefault(); showLoginModal(); });
-  }
-}
+    // In-page login modal flow (static credentials). Uses a pending callback to continue action after sign-in.
+    let _pendingAuthAction = null;
+    function showLoginModal(callback) {
+      _pendingAuthAction = callback || null;
+      const modal = document.getElementById('loginModal');
+      if (!modal) return;
+      modal.style.display = 'flex';
+      modal.setAttribute('aria-hidden', 'false');
+      document.getElementById('loginError').style.display = 'none';
+      document.getElementById('loginUser').value = '';
+      document.getElementById('loginPass').value = '';
+      setTimeout(() => document.getElementById('loginUser').focus(), 10);
+    }
+    function hideLoginModal() {
+      const modal = document.getElementById('loginModal');
+      if (!modal) return;
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden', 'true');
+      _pendingAuthAction = null;
+    }
+    async function handleLoginSubmit() {
+      const user = (document.getElementById('loginUser')?.value || '').trim();
+      const pass = document.getElementById('loginPass')?.value || '';
+      // static check — change as needed
+      const OK_USER = 'student';
+      const OK_PASS = 'campus123';
+      if (user === OK_USER && pass === OK_PASS) {
+        try { localStorage.setItem('authenticated', 'true'); localStorage.setItem('username', user); } catch (e) { }
+        hideLoginModal();
+        updateLoginState();
+        // run pending action if present
+        if (typeof _pendingAuthAction === 'function') {
+          const cb = _pendingAuthAction; _pendingAuthAction = null; cb();
+        }
+        return;
+      }
+      const err = document.getElementById('loginError');
+      err.textContent = 'Invalid username or password'; err.style.display = 'block';
+    }
+    // wire modal buttons (if modal exists at script time)
+    setTimeout(() => {
+      const s = document.getElementById('loginSubmit');
+      const c = document.getElementById('loginCancel');
+      if (s) s.addEventListener('click', (e) => { e.preventDefault(); handleLoginSubmit(); });
+      if (c) c.addEventListener('click', (e) => { e.preventDefault(); hideLoginModal(); });
+      // allow Enter key to submit
+      const userEl = document.getElementById('loginUser');
+      const passEl = document.getElementById('loginPass');
+      [userEl, passEl].forEach(el => { if (el) el.addEventListener('keydown', (ev) => { if (ev.key === 'Enter') handleLoginSubmit(); }); });
+    }, 50);
 
-function logout(){
-  try{ localStorage.removeItem('authenticated'); localStorage.removeItem('username'); }catch(e){}
-  updateLoginState();
-}
+    function updateLoginState() {
+      const auth = localStorage.getItem('authenticated') === 'true';
+      const username = localStorage.getItem('username') || '';
+      const container = document.getElementById('authState');
+      if (!container) return;
+      if (auth) {
+        container.innerHTML = `<div style="display:flex;align-items:center;gap:10px"><span id="usernameDisplay" style="font-weight:700;color:#fff">${escapeHtml(username)}</span><button id="logoutBtn" class="action-button" style="background:#444;color:#fff;padding:6px 8px">Logout</button></div>`;
+        const lb = document.getElementById('logoutBtn');
+        if (lb) lb.addEventListener('click', (e) => { e.preventDefault(); logout(); });
+      } else {
+        container.innerHTML = `<button id="authLoginBtn" class="action-button" style="padding:6px 8px">Login</button>`;
+        const ab = document.getElementById('authLoginBtn');
+        if (ab) ab.addEventListener('click', (e) => { e.preventDefault(); showLoginModal(); });
+      }
+    }
 
-/* ---------- Faculty data (kept from your second file) ---------- */
-const facultyData = [
-  {name:"Dr. R. Annie Uthra", title:"HOD", dept:"CINTEL", office:"TP2, 1106", email:"annie.u@campus.edu"},
-  {name:"Dr. Maragatham G", title:"Professor", dept:"CINTEL", office:"TP2, 1117", email:"maragatg@campus.edu"},
-  {name:"Dr. M. Uma", title:"Professor", dept:"CINTEL", office:"TP2, 1016", email:"umam@campus.edu"},
-  {name:"Dr. S. Karthik", title:"Associate Professor", dept:"CSE", office:"TP1, 203", email:"karthik.s@campus.edu"},
-  {name:"Dr. P. Lakshmi", title:"Assistant Professor", dept:"CSE", office:"TP1, 210", email:"lakshmi.p@campus.edu"},
-  {name:"Dr. T. Ramesh", title:"Professor", dept:"ECE", office:"TP3, 402", email:"ramesh.t@campus.edu"},
-  {name:"Dr. V. Nivedha", title:"Assistant Professor", dept:"AI&DS", office:"TP4, 109", email:"nivedha.v@campus.edu"},
-  {name:"Dr. A. Prakash", title:"Associate Professor", dept:"IT", office:"TP2, 309", email:"prakash.a@campus.edu"},
-  {name:"Dr. L. Meera", title:"Assistant Professor", dept:"CSE", office:"TP1, 215", email:"meera.l@campus.edu"},
-  {name:"Dr. R. Kannan", title:"Professor", dept:"AI&DS", office:"TP4, 201", email:"kannan.r@campus.edu"},
-  {name:"Dr. S. Poornima", title:"Assistant Professor", dept:"IT", office:"TP2, 321", email:"poornima.s@campus.edu"},
-  {name:"Dr. N. Sathish", title:"Associate Professor", dept:"CSE", office:"TP1, 218", email:"sathish.n@campus.edu"}
-];
-const departments = ["All","CSE","CINTEL","IT","AI&DS","ECE","Others"];
+    function logout() {
+      try { localStorage.removeItem('authenticated'); localStorage.removeItem('username'); } catch (e) { }
+      updateLoginState();
+    }
 
-/* Icons used in faculty cards */
-const svgBook = '<svg class="icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H19" stroke="#cfcfcf" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 21V6.5a2.5 2.5 0 0 1 2.5-2.5H19" stroke="#cfcfcf" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-const svgPin = '<svg class="icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" stroke="#cfcfcf" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.657 10.343A6 6 0 1 0 6 11.999v0C6 16 12 22 12 22s6-6 6-10 0-.001-.343-.657z" stroke="#cfcfcf" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-const svgMail = '<svg class="icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5v7a2.5 2.5 0 0 0 2.5 2.5h13A2.5 2.5 0 0 0 21 15.5v-7" stroke="#cfcfcf" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7l-9 6-9-6" stroke="#cfcfcf" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    /* ---------- Faculty data (kept from your second file) ---------- */
+    const facultyData = [
+      { name: "Dr. R. Annie Uthra", title: "HOD", dept: "CINTEL", office: "TP2, 1106", email: "annie.u@campus.edu" },
+      { name: "Dr. Maragatham G", title: "Professor", dept: "CINTEL", office: "TP2, 1117", email: "maragatg@campus.edu" },
+      { name: "Dr. M. Uma", title: "Professor", dept: "CINTEL", office: "TP2, 1016", email: "umam@campus.edu" },
+      { name: "Dr. S. Karthik", title: "Associate Professor", dept: "CSE", office: "TP1, 203", email: "karthik.s@campus.edu" },
+      { name: "Dr. P. Lakshmi", title: "Assistant Professor", dept: "CSE", office: "TP1, 210", email: "lakshmi.p@campus.edu" },
+      { name: "Dr. T. Ramesh", title: "Professor", dept: "ECE", office: "TP3, 402", email: "ramesh.t@campus.edu" },
+      { name: "Dr. V. Nivedha", title: "Assistant Professor", dept: "AI&DS", office: "TP4, 109", email: "nivedha.v@campus.edu" },
+      { name: "Dr. A. Prakash", title: "Associate Professor", dept: "IT", office: "TP2, 309", email: "prakash.a@campus.edu" },
+      { name: "Dr. L. Meera", title: "Assistant Professor", dept: "CSE", office: "TP1, 215", email: "meera.l@campus.edu" },
+      { name: "Dr. R. Kannan", title: "Professor", dept: "AI&DS", office: "TP4, 201", email: "kannan.r@campus.edu" },
+      { name: "Dr. S. Poornima", title: "Assistant Professor", dept: "IT", office: "TP2, 321", email: "poornima.s@campus.edu" },
+      { name: "Dr. N. Sathish", title: "Associate Professor", dept: "CSE", office: "TP1, 218", email: "sathish.n@campus.edu" }
+    ];
+    const departments = ["All", "CSE", "CINTEL", "IT", "AI&DS", "ECE", "Others"];
 
-/* -------------------------
-   Mess menu (from first file)
-   ------------------------- */
-;
+    /* Icons used in faculty cards */
+    const svgBook = '<svg class="icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H19" stroke="#cfcfcf" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 21V6.5a2.5 2.5 0 0 1 2.5-2.5H19" stroke="#cfcfcf" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    const svgPin = '<svg class="icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" stroke="#cfcfcf" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.657 10.343A6 6 0 1 0 6 11.999v0C6 16 12 22 12 22s6-6 6-10 0-.001-.343-.657z" stroke="#cfcfcf" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    const svgMail = '<svg class="icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5v7a2.5 2.5 0 0 0 2.5 2.5h13A2.5 2.5 0 0 0 21 15.5v-7" stroke="#cfcfcf" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7l-9 6-9-6" stroke="#cfcfcf" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
-/* -------------------------
-   Page templates (Home from first file)
-   ------------------------- */
-const pages = {
-  home: `
+    /* -------------------------
+       Mess menu (from first file)
+       ------------------------- */
+    const messMenu = {
+      oval: {
+        wed: {
+          breakfast: ["Idli/Vada", "Sambar", "Chutney", "Tea/Coffee"],
+          lunch: ["Dal Fry", "Aloo Gobi", "Roti", "Rice", "Salad"],
+          snacks: ["Bread Omelette", "Tea", "Coffee"],
+          dinner: ["Chicken Curry", "Jeera Rice", "Papad", "Curd"]
+        },
+        thu: {
+          breakfast: ["Poha", "Jalebi", "Milk", "Tea/Coffee"],
+          lunch: ["Rajma Masala", "Mix Veg", "Roti", "Rice", "Pickle"],
+          snacks: ["Samosa", "Chutney", "Tea", "Coffee"],
+          dinner: ["Paneer Butter Masala", "Naan", "Dal Makhani", "Salad"]
+        }
+        // ... other days ...
+      }
+      // ... other messes ...
+    };
+
+    /* -------------------------
+       Page templates (Home from first file)
+       ------------------------- */
+    const pages = {
+      home: `
     <nav class="top-nav" style="justify-content:flex-start;margin-bottom:18px">
       <a href="#" class="active" style="margin-right:auto;color:#fff;font-weight:700">Home</a>
       <button class="login-button" onclick="alert('Login functionality here')">Login</button>
@@ -1120,7 +1614,7 @@ const pages = {
       </div>
     </div>
   `,
-  quickserve: `
+      quickserve: `
     <nav class="top-nav" style="justify-content:flex-start;margin-bottom:18px">
       <a href="#" onclick="loadPage('home')" style="margin-right:auto;color:#9e9e9e">Home</a>
       <a href="#" style="margin-left:12px">About</a>
@@ -1138,15 +1632,8 @@ const pages = {
         <div class="food-info">
           <h3>Blu Embers</h3>
           <p style="color:#bdbdbd;margin:6px 0 12px">
-            <li>
-            <ul>  Wednesday:05:00 PM 05:30 PM <ul>
-<ul>  Thursday: 05:00 PM - 05:30 PM <ul>
-  <ul>  Friday 05:00 PM - 05:30 PM <ul>
-    <ul>Saturday 05:00 PM 05:30 PM<ul>
-      <ul>  Sunday: 05:00 PM - 05:30 PM <ul>
-        <ul>  Monday: 05:00 PM - 05:30 PM <ul>
-          <ul>  Tuesday: 05:00 PM - 05:30 PM <ul><p>
-
+            Daily: 05:00 PM - 05:30 PM
+          </p>
         </div>
         <button class="action-button quickserve-menu" onclick="alert('Calling Google Plus to place order...')">Menu</button>
       </div>
@@ -1165,15 +1652,7 @@ const pages = {
         <div class="food-info">
           <h3>Rise</h3>
           <p style="color:#bdbdbd;margin:6px 0 12px">
-            
-            <li>
-            <ul>  Wednesday:09:00 AM 9:00 PM <ul>
-          <ul>  Thursay:09:00 AM 9:00 PM <ul>
-            <ul>  Friday:09:00 AM 9:00 PM <ul>
-              <ul>  Saturday:09:00 AM 9:00 PM <ul>
-                <ul>  Sunday:09:00 AM 9:00 PM <ul>
-                  <ul>  Monday:09:00 AM 9:00 PM <ul>
-                    <ul>  Tuesday:09:00 AM 9:00 PM <ul><p>
+            Daily: 09:00 AM - 09:00 PM
           </p>
         </div>
         <button class="action-button quickserve-menu" onclick="alert('Calling Butty to place order...')">Menu</button>
@@ -1188,7 +1667,7 @@ const pages = {
       </div>
     </div>
   `,
-  facultyfinder: `
+      facultyfinder: `
     <div id="facultyFinderRoot">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
         <div>
@@ -1212,7 +1691,7 @@ const pages = {
       <div class="faculty-grid" id="facultyGrid" aria-live="polite" style="margin-top:18px"></div>
     </div>
   `,
-  whatsinmess: `
+      whatsinmess: `
     <nav class="top-nav" style="justify-content:flex-start;margin-bottom:18px">
       <a href="#" onclick="loadPage('home')" style="margin-right:auto;color:#9e9e9e">Home</a>
       <a href="#" style="margin-left:12px">About</a>
@@ -1226,11 +1705,23 @@ const pages = {
       
     </div>
 
-  
+    <div class="day-tabs" role="tablist" aria-label="Day selection">
+      <div class="day-tab active" data-day="wed">Wed</div>
+      <div class="day-tab" data-day="thu">Thu</div>
+      <div class="day-tab" data-day="fri">Fri</div>
+      <div class="day-tab" data-day="sat">Sat</div>
+      <div class="day-tab" data-day="sun">Sun</div>
+      <div class="day-tab" data-day="mon">Mon</div>
+      <div class="day-tab" data-day="tue">Tue</div>
+    </div>
 
-  
+    <div class="meal-tabs" role="tablist" aria-label="Meal selection">
+      <div class="meal-tab active" data-meal="breakfast">Breakfast</div>
+      <div class="meal-tab" data-meal="lunch">Lunch</div>
+      <div class="meal-tab" data-meal="snacks">Snacks</div>
+      <div class="meal-tab" data-meal="dinner">Dinner</div>
+    </div>
 
-    <!-- Upload control added here -->
     <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px;flex-wrap:wrap">
       <label style="font-weight:700;color:#cfcfcf">Upload menu:</label>
       <input type="file" id="menuUpload" accept="image/*,text/plain" style="display:none" />
@@ -1242,7 +1733,7 @@ const pages = {
 
     <div id="meal-items" class="meal-section" aria-live="polite" style="margin-top:12px"></div>
   `,
-  explorecampus: `
+      explorecampus: `
   <nav class="top-nav" style="justify-content:flex-start;margin-bottom:18px">
     <a href="#" onclick="loadPage('home')" style="margin-right:auto;color:#9e9e9e">Home</a>
   </nav>
@@ -1295,57 +1786,57 @@ const pages = {
   </div>
 `,
 
-};
+    };
 
-/* -------------------------
-   App behavior
-   ------------------------- */
+    /* -------------------------
+       App behavior
+       ------------------------- */
 
-/* Sidebar nav items */
-const navItems = document.querySelectorAll('.nav-item');
+    /* Sidebar nav items */
+    const navItems = document.querySelectorAll('.nav-item');
 
-function setActiveNav(page){
-  navItems.forEach(n=> n.classList.toggle('active', n.dataset.page===page));
-  // also set top nav active link text color for Home
-  document.getElementById('topHome').style.color = (page === 'home') ? '#fff' : '#9e9e9e';
-}
+    function setActiveNav(page) {
+      navItems.forEach(n => n.classList.toggle('active', n.dataset.page === page));
+      // also set top nav active link text color for Home
+      document.getElementById('topHome').style.color = (page === 'home') ? '#fff' : '#9e9e9e';
+    }
 
-/* Render faculty finder content (wires up search/filters) */
-function renderFacultyFinder(){
-  // replace content with template already set
-  document.getElementById('pageContent').innerHTML = pages.facultyfinder;
+    /* Render faculty finder content (wires up search/filters) */
+    function renderFacultyFinder() {
+      // replace content with template already set
+      document.getElementById('pageContent').innerHTML = pages.facultyfinder;
 
-  // wire up search and dropdown after DOM insertion
-  const searchEl = document.getElementById('facultySearch');
-  const deptDropdown = document.getElementById('deptDropdown');
-  const deptSelected = document.getElementById('deptSelected');
+      // wire up search and dropdown after DOM insertion
+      const searchEl = document.getElementById('facultySearch');
+      const deptDropdown = document.getElementById('deptDropdown');
+      const deptSelected = document.getElementById('deptSelected');
 
-  deptDropdown.addEventListener('click', ()=>{ 
-    const opts = departments.map((d,i)=>`${i+1}. ${d}`).join('\n');
-    const choice = prompt("Select department (enter number):\n\n" + opts, "1");
-    if(!choice) return;
-    const idx = parseInt(choice,10)-1;
-    if(isNaN(idx) || idx<0 || idx>=departments.length){ alert("Invalid selection"); return; }
-    deptSelected.textContent = departments[idx];
-    applyFacultyFilters();
-  });
+      deptDropdown.addEventListener('click', () => {
+        const opts = departments.map((d, i) => `${i + 1}. ${d}`).join('\n');
+        const choice = prompt("Select department (enter number):\n\n" + opts, "1");
+        if (!choice) return;
+        const idx = parseInt(choice, 10) - 1;
+        if (isNaN(idx) || idx < 0 || idx >= departments.length) { alert("Invalid selection"); return; }
+        deptSelected.textContent = departments[idx];
+        applyFacultyFilters();
+      });
 
-  if(searchEl) {
-    searchEl.addEventListener('input', ()=>applyFacultyFilters());
-  }
+      if (searchEl) {
+        searchEl.addEventListener('input', () => applyFacultyFilters());
+      }
 
-  // initial render
-  renderFacultyCards(facultyData);
-}
+      // initial render
+      renderFacultyCards(facultyData);
+    }
 
-function renderFacultyCards(list){
-  const grid = document.getElementById('facultyGrid');
-  if(!grid) return;
-  if(list.length === 0){
-    grid.innerHTML = `<div style="color:#bdbdbd;padding:24px">No faculty found.</div>`;
-    return;
-  }
-  grid.innerHTML = list.map(f => `
+    function renderFacultyCards(list) {
+      const grid = document.getElementById('facultyGrid');
+      if (!grid) return;
+      if (list.length === 0) {
+        grid.innerHTML = `<div style="color:#bdbdbd;padding:24px">No faculty found.</div>`;
+        return;
+      }
+      grid.innerHTML = list.map(f => `
     <div class="faculty-card" role="article" aria-label="${escapeHtml(f.name)}">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
         <div style="flex:1">
@@ -1361,265 +1852,289 @@ function renderFacultyCards(list){
       </div>
     </div>
   `).join('');
-}
-
-function applyFacultyFilters(){
-  const q = (document.getElementById('facultySearch')?.value || '').trim().toLowerCase();
-  const dept = (document.getElementById('deptSelected')?.textContent || 'All');
-
-  const filtered = facultyData.filter(f=>{
-    if(dept && dept !== 'All' && dept !== 'Others' && f.dept !== dept) return false;
-    if(dept === 'Others'){
-      const known = ["CSE","CINTEL","IT","AI&DS","ECE"];
-      if(known.includes(f.dept)) return false;
     }
-    if(!q) return true;
-    const hay = (f.name + ' ' + f.title + ' ' + f.dept + ' ' + f.office).toLowerCase();
-    return hay.indexOf(q) !== -1;
-  });
 
-  renderFacultyCards(filtered);
-}
+    function applyFacultyFilters() {
+      const q = (document.getElementById('facultySearch')?.value || '').trim().toLowerCase();
+      const dept = (document.getElementById('deptSelected')?.textContent || 'All');
 
-/* QuickServe search */
-function addQuickserveSearch() {
-  const searchBox = document.getElementById('quickserveSearch');
-  const list = document.getElementById('quickserveList');
-  if(!searchBox || !list) return;
-  const cards = list.querySelectorAll('.food-card');
-
-  searchBox.addEventListener('input', () => {
-    const query = searchBox.value.toLowerCase();
-    cards.forEach(card => {
-      const title = (card.querySelector('h3')?.textContent || '').toLowerCase();
-      const desc = (card.querySelector('p')?.textContent || '').toLowerCase();
-      card.style.display = (title.includes(query) || desc.includes(query)) ? '' : 'none';
-    });
-  });
-}
-
-/* WhatsInMess interactions */
-let currentMess = "oval";
-let currentDay = "wed";
-let currentMeal = "breakfast";
-
-async function renderMealItems() {
-  const mealItemsContainer = document.getElementById('meal-items');
-  if(!mealItemsContainer) return;
-  // Load image from Firestore for this selection
-  const imgKey = `${currentMess}|${currentDay}|${currentMeal}`;
-  let uploadedImg = null;
-  try {
-    if (window.db) {
-      const doc = await window.db.collection('messImages').doc(imgKey).get();
-      if (doc.exists) uploadedImg = doc.data().url;
-    }
-  } catch (e) { /* ignore */ }
-
-  const items = (messMenu[currentMess] && messMenu[currentMess][currentDay] && messMenu[currentMess][currentDay][currentMeal]) || [];
-
-  if (!items.length && !uploadedImg) {
-    mealItemsContainer.innerHTML = `<p style=\"color:#bdbdbd">No menu available for this selection.</p>`;
-    return;
-  }
-
-  let colorClass = "item-breakfast";
-  if (currentMeal === "breakfast") colorClass = "item-breakfast";
-  else if (currentMeal === "lunch") colorClass = "item-lunch";
-  else if (currentMeal === "dinner") colorClass = "item-dinner";
-  else if (currentMeal === "snacks") colorClass = "item-snacks";
-
-  const itemsHtml = items.map(item =>
-    `<div class=\"item-box ${colorClass}\">${escapeHtml(item)}</div>`
-  ).join('');
-
-  const imgHtml = uploadedImg ? `<div style=\"width:100%\"><img src=\"${uploadedImg}\" style=\"max-width:100%;border-radius:8px;box-shadow:0 6px 16px rgba(0,0,0,0.6);margin-bottom:12px\"></div>` : '';
-
-  mealItemsContainer.innerHTML = imgHtml + itemsHtml;
-}
-
-function setActiveTab(tabButtons, activeValue, valueAttr = "data-mess") {
-  tabButtons.forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute(valueAttr) === activeValue);
-  });
-}
-
-function addWhatsInMessEvents() {
-  const messTabs = document.querySelectorAll('.mess-tab');
-  messTabs.forEach(tab => {
-    tab.onclick = () => {
-      currentMess = tab.getAttribute('data-mess');
-      setActiveTab(messTabs, currentMess);
-      renderMealItems();
-    };
-  });
-
-  const dayTabs = document.querySelectorAll('.day-tab');
-  dayTabs.forEach(tab => {
-    tab.onclick = () => {
-      currentDay = tab.getAttribute('data-day');
-      setActiveTab(dayTabs, currentDay, 'data-day');
-      renderMealItems();
-    };
-  });
-
-  const mealTabs = document.querySelectorAll('.meal-tab');
-  mealTabs.forEach(tab => {
-    tab.onclick = () => {
-      currentMeal = tab.getAttribute('data-meal');
-      setActiveTab(mealTabs, currentMeal, 'data-meal');
-      renderMealItems();
-    };
-  });
-
-  // Upload handlers (wire after DOM insertion)
-  const uploadInput = document.getElementById('menuUpload');
-  const applyBtn = document.getElementById('applyUploadBtn');
-  const clearBtn = document.getElementById('clearUploadBtn');
-  const uploadPreview = document.getElementById('uploadPreview');
-  let stagedMenuItems = null;
-  let stagedImageData = null;
-
-  if (uploadInput && uploadPreview && applyBtn && clearBtn) {
-    // wire visible upload button to require authentication before opening file picker
-    const uploadBtn = document.getElementById('uploadBtn');
-    if(uploadBtn){
-      uploadBtn.addEventListener('click', async (e)=>{
-        const auth = await isAuthenticated();
-        if(!auth){
-          // show login modal; after successful login the callback will open the file dialog
-          showLoginModal(()=> { setTimeout(()=> uploadInput.click(), 50); });
-          return;
+      const filtered = facultyData.filter(f => {
+        if (dept && dept !== 'All' && dept !== 'Others' && f.dept !== dept) return false;
+        if (dept === 'Others') {
+          const known = ["CSE", "CINTEL", "IT", "AI&DS", "ECE"];
+          if (known.includes(f.dept)) return false;
         }
-        // already authenticated — open file picker
-        uploadInput.click();
+        if (!q) return true;
+        const hay = (f.name + ' ' + f.title + ' ' + f.dept + ' ' + f.office).toLowerCase();
+        return hay.indexOf(q) !== -1;
+      });
+
+      renderFacultyCards(filtered);
+    }
+
+    /* QuickServe search */
+    function addQuickserveSearch() {
+      const searchBox = document.getElementById('quickserveSearch');
+      const list = document.getElementById('quickserveList');
+      if (!searchBox || !list) return;
+      const cards = list.querySelectorAll('.food-card');
+
+      searchBox.addEventListener('input', () => {
+        const query = searchBox.value.toLowerCase();
+        cards.forEach(card => {
+          const title = (card.querySelector('h3')?.textContent || '').toLowerCase();
+          const desc = (card.querySelector('p')?.textContent || '').toLowerCase();
+          card.style.display = (title.includes(query) || desc.includes(query)) ? '' : 'none';
+        });
       });
     }
 
-    uploadInput.addEventListener('change', async (e) => {
-      const file = e.target.files && e.target.files[0];
-      stagedMenuItems = null;
-      stagedImageData = null;
-      uploadPreview.innerHTML = '';
-      if (!file) return;
+    /* WhatsInMess interactions */
+    let currentMess = "oval";
+    let currentDay = "wed";
+    let currentMeal = "breakfast";
 
-      if (file.type.startsWith('image/')) {
-        // --- Cloudinary unsigned upload integration + Firestore save ---
-        const formData = new FormData();
-        formData.append('file', file);
-        formData.append('upload_preset', 'campusweb');
-        uploadPreview.innerHTML = '<span style="color:#bdbdbd">Uploading image...</span>';
-        try {
-          const response = await fetch('https://api.cloudinary.com/v1_1/duhrnwa3d/image/upload', {
-            method: 'POST',
-            body: formData
-          });
-          const data = await response.json();
-          if (data.secure_url) {
-            stagedImageData = data.secure_url;
-            uploadPreview.innerHTML = `<img src="${stagedImageData}" style="max-width:120px;border-radius:8px">`;
-            // Save to Firestore for all users (keyed by mess, day, meal)
-            if (window.db) {
-              const imgKey = `${currentMess}|${currentDay}|${currentMeal}`;
-              await window.db.collection('messImages').doc(imgKey).set({ url: stagedImageData, ts: Date.now() });
-            }
-          } else {
-            uploadPreview.innerHTML = `<div style="color:#f88">Upload failed: ${escapeHtml(data.error?.message || 'Unknown error')}</div>`;
-          }
-        } catch (err) {
-          uploadPreview.innerHTML = `<div style="color:#f88">Upload failed: ${escapeHtml(err.message)}</div>`;
+    async function renderMealItems() {
+      const mealItemsContainer = document.getElementById('meal-items');
+      if (!mealItemsContainer) return;
+      // Load image from Firestore for this selection
+      const imgKey = `${currentMess}|${currentDay}|${currentMeal}`;
+      let uploadedImg = null;
+      try {
+        if (window.db) {
+          const doc = await window.db.collection('messImages').doc(imgKey).get();
+          if (doc.exists) uploadedImg = doc.data().url;
         }
-      } else if (file.type === 'text/plain' || file.name.toLowerCase().endsWith('.txt')) {
-        const reader = new FileReader();
-        reader.onload = function(ev) {
-          stagedMenuItems = (ev.target.result || '').split(/\r?\n/).map(s => s.trim()).filter(Boolean);
-          uploadPreview.innerHTML = `<div style="color:#bdbdbd;max-width:600px"><strong>Parsed items:</strong><div style="margin-top:8px">${stagedMenuItems.map(i => `<div style="padding:4px 0">• ${escapeHtml(i)}</div>`).join('')}</div></div>`;
-        };
-        reader.readAsText(file);
-      } else {
-        uploadPreview.innerHTML = `<div style="color:#f88">Unsupported file type</div>`;
-      }
-    });
+      } catch (e) { /* ignore */ }
 
-    const doApply = () => {
-      messMenu[currentMess] = messMenu[currentMess] || {};
-      messMenu[currentMess][currentDay] = messMenu[currentMess][currentDay] || {};
-      if (stagedMenuItems) {
-        messMenu[currentMess][currentDay][currentMeal] = stagedMenuItems;
-        renderMealItems();
-        alert('Menu applied from uploaded text.');
-      } else if (stagedImageData) {
-        if (!window._messImages) window._messImages = {};
-        window._messImages[`${currentMess}|${currentDay}|${currentMeal}`] = stagedImageData;
-        renderMealItems();
-        alert('Image uploaded and saved for this selection.');
-      } else {
-        alert('No uploaded menu to apply.');
-      }
-    };
+      const items = (messMenu[currentMess] && messMenu[currentMess][currentDay] && messMenu[currentMess][currentDay][currentMeal]) || [];
 
-    applyBtn.onclick = async () => {
-      const auth = await isAuthenticated();
-      if (!auth) {
-        showLoginModal(doApply);
+      if (!items.length && !uploadedImg) {
+        mealItemsContainer.innerHTML = `<p style=\"color:#bdbdbd">No menu available for this selection.</p>`;
         return;
       }
-      doApply();
-    };
 
-    clearBtn.onclick = () => {
-      uploadInput.value = '';
-      stagedMenuItems = null;
-      stagedImageData = null;
-      uploadPreview.innerHTML = '';
-      if (window._messImages) {
-        delete window._messImages[`${currentMess}|${currentDay}|${currentMeal}`];
-      }
-      renderMealItems();
-    };
-  }
-}
+      let colorClass = "item-breakfast";
+      if (currentMeal === "breakfast") colorClass = "item-breakfast";
+      else if (currentMeal === "lunch") colorClass = "item-lunch";
+      else if (currentMeal === "dinner") colorClass = "item-dinner";
+      else if (currentMeal === "snacks") colorClass = "item-snacks";
 
-/* Page loader */
-function loadPage(page){
-  setActiveNav(page);
-  if(page === 'facultyfinder'){
-    renderFacultyFinder();
-  } else {
-    document.getElementById('pageContent').innerHTML = pages[page] || `<div style="padding:24px">Page: ${page}</div>`;
+      const itemsHtml = items.map(item =>
+        `<div class=\"item-box ${colorClass}\">${escapeHtml(item)}</div>`
+      ).join('');
 
-    if(page === 'quickserve') {
-      setTimeout(()=> addQuickserveSearch(), 0);
+      // Display the image first, then the items
+      const imgHtml = uploadedImg ? `<div style=\"width:100%\"><img src=\"${uploadedImg}\" style=\"max-width:100%;border-radius:8px;box-shadow:0 6px 16px rgba(0,0,0,0.6);margin-bottom:12px\"></div>` : '';
 
-    } else if(page === 'whatsinmess') {
-      setTimeout(()=> {
-        addWhatsInMessEvents();
-        renderMealItems();
-      }, 0);
-
-    } else if(page === 'explorecampus') {
-      setTimeout(() => addExploreCampusCardEvents(), 50);
+      mealItemsContainer.innerHTML = imgHtml + itemsHtml;
     }
-  }
-}
 
-/* wire sidebar nav clicks */
-navItems.forEach(n=>{
-  n.addEventListener('click', ()=>{
-    const page = n.dataset.page;
-    loadPage(page);
-  });
-});
+    function setActiveTab(tabButtons, activeValue, valueAttr = "data-mess") {
+      tabButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute(valueAttr) === activeValue);
+      });
+    }
 
-/* top nav home link */
-document.getElementById('topHome').addEventListener('click',(e)=>{ e.preventDefault(); loadPage('home'); });
+    function addWhatsInMessEvents() {
+      const messTabs = document.querySelectorAll('.mess-tab');
+      messTabs.forEach(tab => {
+        tab.onclick = () => {
+          currentMess = tab.getAttribute('data-mess');
+          setActiveTab(messTabs, currentMess);
+          renderMealItems();
+        };
+      });
 
-// initialize auth UI and start on home
-setTimeout(()=>{
-  updateLoginState();
-  loadPage('home');
-}, 20);
+      const dayTabs = document.querySelectorAll('.day-tab');
+      dayTabs.forEach(tab => {
+        tab.onclick = () => {
+          currentDay = tab.getAttribute('data-day');
+          setActiveTab(dayTabs, currentDay, 'data-day');
+          renderMealItems();
+        };
+      });
 
-</script>
+      const mealTabs = document.querySelectorAll('.meal-tab');
+      mealTabs.forEach(tab => {
+        tab.onclick = () => {
+          currentMeal = tab.getAttribute('data-meal');
+          setActiveTab(mealTabs, currentMeal, 'data-meal');
+          renderMealItems();
+        };
+      });
+
+      // Upload handlers (wire after DOM insertion)
+      const uploadInput = document.getElementById('menuUpload');
+      const applyBtn = document.getElementById('applyUploadBtn');
+      const clearBtn = document.getElementById('clearUploadBtn');
+      const uploadPreview = document.getElementById('uploadPreview');
+      let stagedMenuItems = null;
+      let stagedImageData = null;
+
+      if (uploadInput && uploadPreview && applyBtn && clearBtn) {
+        // wire visible upload button to require authentication before opening file picker
+        const uploadBtn = document.getElementById('uploadBtn');
+        if (uploadBtn) {
+          uploadBtn.addEventListener('click', async (e) => {
+            const auth = await isAuthenticated();
+            if (!auth) {
+              // show login modal; after successful login the callback will open the file dialog
+              showLoginModal(() => { setTimeout(() => uploadInput.click(), 50); });
+              return;
+            }
+            // already authenticated — open file picker
+            uploadInput.click();
+          });
+        }
+
+        uploadInput.addEventListener('change', async (e) => {
+          const file = e.target.files && e.target.files[0];
+          stagedMenuItems = null;
+          stagedImageData = null;
+          uploadPreview.innerHTML = '';
+          if (!file) return;
+
+          if (file.type.startsWith('image/')) {
+            // --- Cloudinary unsigned upload integration + Firestore save (PUBLISH) ---
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('upload_preset', 'campusweb');
+            uploadPreview.innerHTML = '<span style="color:#bdbdbd">Uploading image...</span>';
+            try {
+              const response = await fetch('https://api.cloudinary.com/v1_1/duhrnwa3d/image/upload', {
+                method: 'POST',
+                body: formData
+              });
+              const data = await response.json();
+              if (data.secure_url) {
+                stagedImageData = data.secure_url;
+                // PREVIEW: Show the uploaded image immediately
+                uploadPreview.innerHTML = `<img src="${stagedImageData}" style="max-width:120px;border-radius:8px">`;
+
+                // PUBLISH: Save to Firestore for all users (keyed by mess, day, meal)
+                if (window.db) {
+                  const imgKey = `${currentMess}|${currentDay}|${currentMeal}`;
+                  // This is the step that makes it accessible to all users via renderMealItems
+                  await window.db.collection('messImages').doc(imgKey).set({ url: stagedImageData, ts: Date.now() });
+                }
+
+              } else {
+                uploadPreview.innerHTML = `<div style="color:#f88">Upload failed: ${escapeHtml(data.error?.message || 'Unknown error')}</div>`;
+              }
+            } catch (err) {
+              uploadPreview.innerHTML = `<div style="color:#f88">Upload failed: ${escapeHtml(err.message)}</div>`;
+            }
+          } else if (file.type === 'text/plain' || file.name.toLowerCase().endsWith('.txt')) {
+            const reader = new FileReader();
+            reader.onload = function (ev) {
+              stagedMenuItems = (ev.target.result || '').split(/\r?\n/).map(s => s.trim()).filter(Boolean);
+              uploadPreview.innerHTML = `<div style="color:#bdbdbd;max-width:600px"><strong>Parsed items:</strong><div style="margin-top:8px">${stagedMenuItems.map(i => `<div style="padding:4px 0">• ${escapeHtml(i)}</div>`).join('')}</div></div>`;
+            };
+            reader.readAsText(file);
+          } else {
+            uploadPreview.innerHTML = `<div style="color:#f88">Unsupported file type</div>`;
+          }
+        });
+
+        const doApply = () => {
+          messMenu[currentMess] = messMenu[currentMess] || {};
+          messMenu[currentMess][currentDay] = messMenu[currentMess][currentDay] || {};
+          if (stagedMenuItems) {
+            // Logic for applying text menu
+            messMenu[currentMess][currentDay][currentMeal] = stagedMenuItems;
+            renderMealItems();
+            alert('Menu applied from uploaded text.');
+          } else if (stagedImageData) {
+            // The image is ALREADY published via Firestore in the 'change' event.
+            // This button confirms and refreshes the view.
+            renderMealItems();
+            alert('Image uploaded and saved for this selection. Visible to all users.');
+          } else {
+            alert('No uploaded menu or image to apply.');
+          }
+        };
+
+        applyBtn.onclick = async () => {
+          const auth = await isAuthenticated();
+          if (!auth) {
+            showLoginModal(doApply);
+            return;
+          }
+          doApply();
+        };
+
+        clearBtn.onclick = async () => {
+          // Clear staging variables and input file reference
+          uploadInput.value = '';
+          stagedMenuItems = null;
+          stagedImageData = null;
+          uploadPreview.innerHTML = '';
+
+          // Remove the image entry from Firestore (un-publish)
+          if (window.db) {
+            const imgKey = `${currentMess}|${currentDay}|${currentMeal}`;
+            try {
+              await window.db.collection('messImages').doc(imgKey).delete();
+            } catch (e) {
+              console.error("Error clearing Firestore image:", e);
+            }
+          }
+
+          // Also clear any local image reference if it exists (for non-firestore fallback)
+          if (window._messImages) {
+            delete window._messImages[`${currentMess}|${currentDay}|${currentMeal}`];
+          }
+
+          // Refresh the menu display
+          renderMealItems();
+          alert('Custom menu/image cleared.');
+        };
+      }
+    }
+
+    /* Page loader */
+    function loadPage(page) {
+      setActiveNav(page);
+      if (page === 'facultyfinder') {
+        renderFacultyFinder();
+      } else {
+        document.getElementById('pageContent').innerHTML = pages[page] || `<div style="padding:24px">Page: ${page}</div>`;
+
+        if (page === 'quickserve') {
+          setTimeout(() => addQuickserveSearch(), 0);
+
+        } else if (page === 'whatsinmess') {
+          setTimeout(() => {
+            addWhatsInMessEvents();
+            renderMealItems();
+          }, 0);
+
+        } else if (page === 'explorecampus') {
+          setTimeout(() => addExploreCampusCardEvents(), 50);
+        }
+      }
+    }
+
+    /* wire sidebar nav clicks */
+    navItems.forEach(n => {
+      n.addEventListener('click', () => {
+        const page = n.dataset.page;
+        loadPage(page);
+      });
+    });
+
+    /* top nav home link */
+    document.getElementById('topHome').addEventListener('click', (e) => { e.preventDefault(); loadPage('home'); });
+
+    // initialize auth UI and start on home
+    setTimeout(() => {
+      updateLoginState();
+      loadPage('home');
+    }, 20);
+
+  </script>
 </body>
+
 </html>
+
